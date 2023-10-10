@@ -1,0 +1,24 @@
+:root {
+  --maincolor: #ff8080;
+  --subcolor01: #ffcf96;
+  --backgroundcolor: #f6fdc3;
+  --subcolor02: #cdfad5;
+}
+
+body {
+  background-color: var(--backgroundcolor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#mainHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem 20rem;
+  border-radius: 8px;
+
+  background-color: var(--subcolor02);
+}
