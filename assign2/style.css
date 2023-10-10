@@ -154,3 +154,38 @@ h1 {
 }
 
 /* 리스트내역 */
+#list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 2rem;
+}
+
+.list_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 1rem;
+
+  width: 100%;
+  height: 3rem;
+
+  border: 3px solid var(--subcolor01);
+  border-radius: 10px;
+
+  background-color: var(--subcolor02);
+}
+
+.list_wrapper button {
+  display: flex;
+
+  border: none;
+}
+
+.money_and_btn {
+  display: flex;
+  flex-direction: column;
+}
