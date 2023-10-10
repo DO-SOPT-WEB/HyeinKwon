@@ -1,8 +1,27 @@
+@import "./reset.css";
+@font-face {
+  font-family: "NPSfontBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SUITE-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
   --maincolor: #ff8080;
   --subcolor01: #ffcf96;
   --backgroundcolor: #f6fdc3;
   --subcolor02: #cdfad5;
+  --blue: #89cff0;
+  --red: #f05650;
 }
 
 body {
@@ -10,15 +29,128 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  font-family: SUITE-Regular;
 }
 
-#mainHeader {
+.plus {
+  color: var(--blue);
+}
+
+.minus {
+  color: var(--red);
+}
+
+hr {
+  color: var(--maincolor);
+}
+
+/* 헤더부분 */
+#main_header {
   display: flex;
   align-items: center;
   justify-content: center;
 
   padding: 2rem 20rem;
-  border-radius: 8px;
+  border-radius: 3%;
 
   background-color: var(--subcolor02);
+
+  font-family: NPSfontBold;
 }
+
+/* 나의 자산부분 */
+#my_money {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem;
+  width: 20rem;
+  border: solid 5px var(--maincolor);
+  border-radius: 5%;
+
+  background-color: whitesmoke;
+}
+
+#my_money h2,
+h1 {
+  font-family: NPSfontBold;
+  margin: 0.3rem;
+}
+
+#my_money .plus,
+.minus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+#money_wrapper {
+  gap: 0.5rem;
+}
+
+#money_wrapper *,
+#money_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#plus_ic,
+#minus_ic {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+
+#plus_ic {
+  border: 1.5px solid var(--blue);
+}
+
+#minus_ic {
+  border: 1.5px solid var(--red);
+}
+
+/* 네비게이션부분 */
+#nav_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#nav_section * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#goback_btn,
+#gofront_btn {
+  border: none;
+  background-color: var(--backgroundcolor);
+}
+
+#list_btn_wrapper {
+  width: 100%;
+  justify-content: space-between;
+}
+
+#nav_section .btn_wrapper {
+  gap: 1rem;
+  width: 30%;
+}
+
+.btn_wrapper button {
+  background-color: var(--subcolor02);
+  padding: 0.2rem 0.5rem;
+  border: none;
+  border-radius: 10%;
+
+  box-shadow: 3px 3px var(--subcolor01);
+}
+
+/* 리스트내역 */
