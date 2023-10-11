@@ -238,17 +238,34 @@ ul li:hover {
 }
 
 @media screen and (max-width: 1024px) {
+  .second_pic_wrapper {
+    display: flex;
+    flex-direction: column;
+  }
   #big_pic {
-    width: 60rem;
-    height: 50rem;
+    width: 30rem;
+    height: 30rem;
   }
 }
 
 @media (max-width: 768px) {
-  .second_pic_wrapper img,
-  #big_pic {
-    width: 50%;
-    height: 50%;
+  .second_pic_wrapper,
+  .small_pic_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    height: auto;
+  }
+
+  .second_pic_wrapper {
+    gap: 3rem;
+  }
+
+  #big_pic,
+  .small_pic {
+    width: 10rem;
+    height: 10rem;
   }
 }
 
