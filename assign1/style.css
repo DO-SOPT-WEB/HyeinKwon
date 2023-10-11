@@ -197,13 +197,6 @@ ul li:hover {
 }
 
 /* 반응형 */
-
-@media screen and (min-width: 768px) {
-  body {
-    background-color: yellow;
-  }
-}
-
 @media screen and (max-width: 1024px) {
   body {
     display: flex;
@@ -247,20 +240,112 @@ ul li:hover {
 
   .small_pic_wrapper {
     display: flex;
-    width: 60rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    background-color: aqua;
+  }
+  /* 
+   .small_pic_wrapper img:nth-child(-n + 2) {
+    width: 20rem;
+  } */
+
+  .small_pic_wrapper img {
+    width: 30%;
   }
 
-  .small_pic_wrapper img:nth-child(-n + 3) {
-    width: 18rem;
-  }
-
-  .small_pic_wrapper img:last-child {
-    width: 50rem;
-  }
-
-  #big_pic {
+  /* .small_pic {
+    width: auto;
+  } */
+  */ #big_pic {
     width: 60rem;
     height: 50rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+  }
+
+  .first_pic_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+    width: 20rem;
+
+    background-color: #a2d2ff;
+
+    gap: 0.5rem;
+  }
+
+  #first_section img {
+    width: 50%;
+  }
+
+  .second_pic_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.2rem;
+
+    width: 40rem;
+    background-color: #cdb4db;
+  }
+
+  .small_pic_wrapper img {
+    width: 15rem;
+  }
+}
+
+@media (max-width: 260px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+  }
+
+  .first_pic_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+    width: 10rem;
+    height: auto;
+
+    background-color: #a2d2ff;
+
+    gap: 0.5rem;
+  }
+
+  /* .first_pic_wrapper img {
+    height: 2rem;
+  } */
+
+  .second_pic_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.2rem;
+
+    width: 40rem;
+    background-color: #cdb4db;
+  }
+
+  .small_pic_wrapper img {
+    width: 10rem;
   }
 }
 
