@@ -46,7 +46,7 @@ main {
 
   gap: 2rem;
 
-  background-color: var(--backgroundcolor);
+  /* background-color: var(--backgroundcolor); */
   font-family: Dovemayo_gothic;
 }
 
@@ -54,9 +54,10 @@ header,
 footer {
   display: flex;
   justify-content: center;
+  align-items: center;
 
   padding: 2rem;
-  width: 80rem;
+
   font-family: "OAGothic-ExtraBold";
 }
 
@@ -193,6 +194,74 @@ ul li:hover {
 
   width: 36rem;
   height: 36rem;
+}
+
+/* 반응형 */
+
+@media screen and (min-width: 768px) {
+  body {
+    background-color: yellow;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: red;
+  }
+
+  #first_section article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+    width: 60rem;
+    height: auto;
+
+    gap: 0.5rem;
+  }
+
+  #first_section img {
+    width: 13rem;
+    height: 15rem;
+  }
+
+  #first_section .media_small {
+    width: 26rem;
+  }
+
+  .second_pic_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    width: 60rem;
+    height: auto;
+  }
+
+  .small_pic_wrapper {
+    display: flex;
+    width: 60rem;
+  }
+
+  .small_pic_wrapper img:nth-child(-n + 3) {
+    width: 18rem;
+  }
+
+  .small_pic_wrapper img:last-child {
+    width: 50rem;
+  }
+
+  #big_pic {
+    width: 60rem;
+    height: 50rem;
+  }
 }
 
 /* 세번째 섹션 */
