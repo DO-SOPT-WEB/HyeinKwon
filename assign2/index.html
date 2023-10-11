@@ -37,51 +37,76 @@
         <article id="list_btn_wrapper">
           <h4>내역 리스트</h4>
           <div class="btn_wrapper">
-            <button>수입</button>
-            <button>지출</button>
+            <input
+              type="checkbox"
+              id="input_plus"
+              class="input_checkbox" /><label class="plus" for="input_plus"
+              >수입</label
+            >
+            <input
+              type="checkbox"
+              id="input_minus"
+              class="input_checkbox" /><label class="minus" for="input_minus"
+              >지출</label
+            >
           </div>
         </article>
       </section>
 
       <hr />
 
-      <section>
-        <article id="list">
-          <div class="list_wrapper">
-            <h5>식비</h5>
-            <h4>에베레스트 하남스타필드점</h4>
+      <section id="list">
+        <article class="list_wrapper">
+          <h5>식비</h5>
+          <h4>에베레스트 하남스타필드점</h4>
 
-            <div class="money_and_btn">
-              <button>x</button>
-              <h3 class="minus">-39000</h3>
-            </div>
+          <div class="money_and_btn">
+            <button>x</button>
+            <h3 class="minus">-39000</h3>
           </div>
-          <div class="list_wrapper">
-            <h5>카페</h5>
-            <h4>젤라띠 젤라또</h4>
+        </article>
+        <article class="list_wrapper">
+          <h5>카페</h5>
+          <h4>젤라띠 젤라또</h4>
+
+          <div class="money_and_btn">
+            <button>x</button>
             <h3 class="minus">-5500</h3>
-            <button>x</button>
           </div>
-          <div class="list_wrapper">
-            <h5>알바비</h5>
-            <h4>이번달 과외비</h4>
+        </article>
+        <article class="list_wrapper">
+          <h5>알바비</h5>
+          <h4>이번달 과외비</h4>
+
+          <div class="money_and_btn">
+            <button>x</button>
+
             <h3 class="plus">+6000000</h3>
-            <button>x</button>
           </div>
-          <div class="list_wrapper">
-            <h5>쇼핑</h5>
-            <h4>러쉬 하남스타필드점</h4>
+        </article>
+        <div class="list_wrapper">
+          <h5>쇼핑</h5>
+          <h4>러쉬 하남스타필드점</h4>
+
+          <article class="money_and_btn">
+            <button>x</button>
             <h3 class="minus">-35000</h3>
+          </article>
+        </div>
+        <article class="list_wrapper">
+          <h5>식비</h5>
+          <h4>등촌샤브칼국수 회기역점</h4>
+
+          <div class="money_and_btn">
             <button>x</button>
-          </div>
-          <div class="list_wrapper">
-            <h5>식비</h5>
-            <h4>등촌샤브칼국수 회기역점</h4>
             <h3 class="minus">-24000</h3>
-            <button>x</button>
           </div>
         </article>
       </section>
     </main>
+
+    <footer>
+      <button>+</button>
+    </footer>
   </body>
 </html>

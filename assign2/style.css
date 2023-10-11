@@ -29,6 +29,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   font-family: SUITE-Regular;
 }
@@ -51,7 +52,11 @@ hr {
   align-items: center;
   justify-content: center;
 
-  padding: 2rem 20rem;
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+
   border-radius: 3%;
 
   background-color: var(--subcolor02);
@@ -66,8 +71,8 @@ hr {
   align-items: center;
   justify-content: center;
 
-  padding: 2rem;
   width: 20rem;
+  padding: 2rem;
   border: solid 5px var(--maincolor);
   border-radius: 5%;
 
@@ -140,17 +145,24 @@ h1 {
 }
 
 #nav_section .btn_wrapper {
+  display: flex;
   gap: 1rem;
-  width: 30%;
 }
 
-.btn_wrapper button {
+.btn_wrapper label {
   background-color: var(--subcolor02);
   padding: 0.2rem 0.5rem;
   border: none;
   border-radius: 10%;
 
   box-shadow: 3px 3px var(--subcolor01);
+
+  cursor: pointer;
+}
+
+#input_minus,
+#input_plus {
+  display: none;
 }
 
 /* 리스트내역 */
@@ -188,4 +200,37 @@ h1 {
 .money_and_btn {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+
+  gap: 0.01rem;
+}
+
+.money_and_btn button {
+  display: flex;
+  width: 1rem;
+  height: 1rem;
+
+  border-radius: 50%;
+
+  background-color: var(--subcolor01);
+}
+
+/* 리스트하단버튼 */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+  margin-top: 2rem;
+}
+
+footer button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+  background-color: var(--subcolor01);
 }
