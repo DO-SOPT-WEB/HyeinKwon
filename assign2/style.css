@@ -27,19 +27,21 @@
 html {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color: var(--backgroundcolor);
-
-  justify-content: space-between;
+  width: 375px;
+  height: 667px;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
 
   font-family: SUITE-Regular;
+
+  width: 375px;
+  height: 667px;
+  background-color: var(--backgroundcolor);
 }
 
 .plus {
@@ -61,7 +63,7 @@ hr {
   align-items: center;
   justify-content: center;
 
-  width: 100vw;
+  width: 100%;
   padding-top: 1vh;
   padding-bottom: 1vh;
   margin-bottom: 1vh;
@@ -80,8 +82,7 @@ hr {
   align-items: center;
   justify-content: center;
 
-  width: 80vw;
-  height: 8vh;
+  width: 80%;
   padding: 2rem;
   border: solid 5px var(--maincolor);
   border-radius: 5%;
@@ -179,11 +180,13 @@ h1 {
 #list {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
-  gap: 10%;
-  height: 50vh;
+  /* margin-top: 3rem; */
+  gap: 1rem;
+  height: 60%;
+
+  overflow-y: scroll;
 }
 
 .list_wrapper {
@@ -193,8 +196,8 @@ h1 {
 
   padding: 0 1rem;
 
-  width: 90vw;
-  height: 20vh;
+  width: 90%;
+  height: 20%;
 
   border: 3px solid var(--subcolor01);
   border-radius: 10px;
@@ -239,9 +242,7 @@ footer {
   justify-content: center;
   align-items: center;
 
-  width: 80vh;
-
-  margin-top: 2vh;
+  width: 100%;
 }
 
 footer button {
@@ -249,7 +250,7 @@ footer button {
   align-items: center;
   justify-content: center;
 
-  width: 80vw;
+  width: 80%;
   border: none;
   border-radius: 5%;
 
