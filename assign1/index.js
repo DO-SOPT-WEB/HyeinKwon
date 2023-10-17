@@ -3,7 +3,7 @@ import DATA from "./DATA.js";
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
-// 1.a
+// 1.a /b
 // const firstImages = $(".first_pic_wrapper img");
 const firstImages = document.querySelectorAll(".first_section_pic");
 
@@ -27,4 +27,15 @@ firstImages.forEach((pic, index) => {
     h2.innerText = "";
     p.innerText = "";
   });
+});
+
+//2.a
+const gotopBtn = document.getElementById("gotop_btn");
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  const maxScroll = document.body.clientHeight - window.innerHeight; // 최대 스크롤 위치
+
+  // 스크롤 위치에 따라 투명도 조절
+  const opacity = scrollY / maxScroll;
+  gotopBtn.style.opacity = opacity;
 });

@@ -382,4 +382,7 @@ nav article a:hover {
   background-color: var(--subcolor02);
 
   font-family: Dovemayo_gothic;
+
+  opacity: 0;
+  transition: opacity 0.3s;
 }
