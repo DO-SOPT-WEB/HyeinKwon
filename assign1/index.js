@@ -33,9 +33,7 @@ firstImages.forEach((pic, index) => {
 const gotopBtn = document.getElementById("gotop_btn");
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
-  const maxScroll = document.body.clientHeight - window.innerHeight; // 최대 스크롤 위치
-
-  // 스크롤 위치에 따라 투명도 조절
+  const maxScroll = document.body.clientHeight - window.innerHeight;
   const opacity = scrollY / maxScroll;
   gotopBtn.style.opacity = opacity;
 });
