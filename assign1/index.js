@@ -3,7 +3,7 @@ import DATA from "./DATA.js";
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
-// 1.a /b
+// 1.a , b
 // const firstImages = $(".first_pic_wrapper img");
 const firstImages = document.querySelectorAll(".first_section_pic");
 
