@@ -256,3 +256,7 @@ footer button {
 
   background-color: var(--subcolor01);
 }
+
+.hidden {
+  display: none;
+}
