@@ -177,9 +177,6 @@ function addList() {
   let ADD_BALANCE = 0;
   let MODAL_INMONEY = 0;
   let MODAL_OUTMONEY = 0;
-  makeList(newList, list);
-  alert("저장되었습니다.");
-
   newList.forEach((data) => {
     const { money, getto } = data;
     ADD_BALANCE += getto ? money : -money;
@@ -192,6 +189,9 @@ function addList() {
     plusMoney.innerText = TOTAL_INMONEY;
     minusMoney.innerText = TOTAL_OUTMONEY;
   });
+
+  makeList(newList, list);
+  alert("저장되었습니다.");
 }
 
 saveBtn.addEventListener("click", () => addList());
