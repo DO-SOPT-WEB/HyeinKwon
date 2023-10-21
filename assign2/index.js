@@ -175,15 +175,22 @@ function addList() {
   ];
 
   let ADD_BALANCE = 0;
+  let MODAL_INMONEY = 0;
+  let MODAL_OUTMONEY = 0;
   makeList(newList, list);
   alert("저장되었습니다.");
 
-  //
   newList.forEach((data) => {
     const { money, getto } = data;
     ADD_BALANCE += getto ? money : -money;
     let TOTAL_BALANCE = Number(ADD_BALANCE) + Number(INIT_BALANCE);
     h1.innerText = TOTAL_BALANCE;
+
+    getto ? (MODAL_INMONEY += money) : (MODAL_OUTMONEY += money);
+    let TOTAL_INMONEY = Number(IN_MONEY) + Number(MODAL_INMONEY);
+    let TOTAL_OUTMONEY = Number(OUT_MONEY) + Number(MODAL_OUTMONEY);
+    plusMoney.innerText = TOTAL_INMONEY;
+    minusMoney.innerText = TOTAL_OUTMONEY;
   });
 }
 
