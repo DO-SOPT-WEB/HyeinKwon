@@ -43,11 +43,15 @@ makeList(HISTORY_LIST, list);
 let INIT_BALANCE = 0;
 const h1 = document.querySelector("#my_money > h1");
 
-HISTORY_LIST.forEach((data) => {
-  const { money, getto } = data;
-  INIT_BALANCE += getto ? money : -money;
-  h1.innerText = INIT_BALANCE;
-});
+function myBalance(MoneyList) {
+  MoneyList.forEach((data) => {
+    const { money, getto } = data;
+    INIT_BALANCE += getto ? money : -money;
+    h1.innerText = INIT_BALANCE;
+  });
+}
+
+myBalance(HISTORY_LIST);
 
 //2.
 let IN_MONEY = 0;
@@ -170,8 +174,17 @@ function addList() {
     },
   ];
 
+  let ADD_BALANCE = 0;
   makeList(newList, list);
-  console.log(newList);
+  alert("저장되었습니다.");
+
+  //
+  newList.forEach((data) => {
+    const { money, getto } = data;
+    ADD_BALANCE += getto ? money : -money;
+    let TOTAL_BALANCE = Number(ADD_BALANCE) + Number(INIT_BALANCE);
+    h1.innerText = TOTAL_BALANCE;
+  });
 }
 
 saveBtn.addEventListener("click", () => addList());
