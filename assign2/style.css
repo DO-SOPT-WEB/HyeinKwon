@@ -289,3 +289,7 @@ footer button {
   background-color: var(--subcolor01);
   box-shadow: 1px 1px 1px var(--subcolor02);
 }
+
+#expenditure_select {
+  display: none;
+}
