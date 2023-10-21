@@ -123,4 +123,61 @@ deleteButton.forEach((button) => {
   });
 });
 
-//5
+//5.a,b,c
+const footerButton = document.querySelector("#modalButton");
+const modal = document.getElementById("modal");
+footerButton.addEventListener("click", () => {
+  modal.style.display = "flex";
+});
+
+const incomeCheck = document.querySelector("#income");
+const expenditureCheck = document.querySelector("#expenditure");
+const incomeSelect = document.querySelector("#income_select");
+const expenditureSelect = document.querySelector("#expenditure_select");
+let selectOption = document.querySelector(".modal_select");
+
+function selectCheck() {
+  if (incomeCheck.checked) {
+    expenditureSelect.style.display = "none";
+    incomeSelect.style.display = "flex";
+    selectOption = document.querySelector("#income_select");
+  } else if (expenditureCheck.checked) {
+    expenditureSelect.style.display = "flex";
+    incomeSelect.style.display = "none";
+    selectOption = document.querySelector("#expenditure_select");
+  }
+}
+incomeCheck.addEventListener("change", () => selectCheck());
+expenditureCheck.addEventListener("change", () => selectCheck());
+
+//5.d
+
+const saveBtn = document.getElementById("save_button");
+const howMuchInput = document.getElementById("howmuch_input");
+const summaryInput = document.getElementById("summary_input");
+
+function addList() {
+  let selectedOption = selectOption.value;
+  let howMuchSummaried = howMuchInput.value;
+  let summarySummarized = summaryInput.value;
+
+  let newList = [
+    {
+      title: selectedOption,
+      summary: summarySummarized,
+      money: howMuchSummaried,
+      getto: incomeCheck.checked ? true : false,
+    },
+  ];
+
+  makeList(newList, list);
+  console.log(newList);
+}
+
+saveBtn.addEventListener("click", () => addList());
+
+//5.e
+const closeModalBtn = document.getElementById("close_button");
+closeModalBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
