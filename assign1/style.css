@@ -88,8 +88,14 @@ footer {
 /* 미리보기 */
 .scroll {
   display: flex;
-  width: 100%;
+  width: 97%;
   overflow-x: scroll;
+}
+
+#preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #preview img {
@@ -113,6 +119,19 @@ footer {
   background-color: var(--subcolor01);
 
   border-radius: 10px;
+}
+
+#preview button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  border: none;
+  height: 2rem;
+  width: 2rem;
+
+  background-color: var(--maincolor);
 }
 
 /* 목차 */

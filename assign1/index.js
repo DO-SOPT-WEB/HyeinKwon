@@ -61,3 +61,5 @@ window.addEventListener("scroll", () => {
   const opacity = scrollY / maxScroll;
   gotopBtn.style.opacity = opacity;
 });
+
+//심화 2번
