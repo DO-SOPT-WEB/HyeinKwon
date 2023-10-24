@@ -193,7 +193,7 @@ nav article a:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  gap: 0.5rem;
+  gap: 1rem;
   z-index: 999;
 }
 
@@ -202,12 +202,27 @@ nav article a:hover {
   justify-content: center;
 
   color: white;
-  width: 8rem;
 }
 
 .summary {
   color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
   height: 3rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.more_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--maincolor02);
+  color: var(--maincolor);
+  border-radius: 3px;
+  border: none;
+  font-family: "OAGothic-ExtraBold";
 }
 
 @media screen and (max-width: 1024px) {

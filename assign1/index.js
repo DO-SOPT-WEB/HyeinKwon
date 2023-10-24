@@ -7,6 +7,11 @@ const $$ = (selector) => document.querySelectorAll(selector);
 // const firstImages = $(".first_pic_wrapper img");
 const firstImages = document.querySelectorAll(".first_section_pic");
 
+//더보기 버튼 생성
+const moreBtn = document.createElement("button");
+moreBtn.classList.add("more_button");
+moreBtn.innerText = "더보기";
+
 firstImages.forEach((pic, index) => {
   const h2 = document.createElement("h2");
   h2.classList.add("title");
@@ -24,12 +29,27 @@ firstImages.forEach((pic, index) => {
     p.innerText = summary;
     div.appendChild(p);
     pic.appendChild(div);
+
+    //심화 1번
+    const pHeight = p.clientHeight;
+    const summaryHeight = p.scrollHeight;
+    if (pHeight < summaryHeight) {
+      div.appendChild(moreBtn);
+      moreBtn.addEventListener("click", function () {
+        p.style.overflow = "visible";
+        if ((p.style.overflow = "visible")) {
+          moreBtn.style.display = "none";
+        }
+      });
+    }
   });
 
-  pic.addEventListener("mouseleave", function () {
+  pic.addEventListener("mouseleave", function (e) {
     pic.classList.remove("addTitle");
     h2.innerText = "";
     p.innerText = "";
+    p.style.overflow = "hidden";
+    moreBtn.style.display = "flex";
   });
 });
 
