@@ -17,9 +17,13 @@ firstImages.forEach((pic, index) => {
     pic.childNodes[1].classList.add("addTitle");
     pic.classList.add("addTitle");
     h2.innerText = title;
-    pic.appendChild(h2);
+
+    const div = document.createElement("div");
+    div.classList.add("title_summary_wrapper");
+    div.appendChild(h2);
     p.innerText = summary;
-    pic.appendChild(p);
+    div.appendChild(p);
+    pic.appendChild(div);
   });
 
   pic.addEventListener("mouseleave", function () {

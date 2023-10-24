@@ -184,19 +184,30 @@ nav article a:hover {
   filter: brightness(80%);
 }
 
-.title {
+.title_summary_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 50%;
-  left: 40%;
-  color: white;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  gap: 0.5rem;
   z-index: 999;
 }
 
-.summary {
-  position: absolute;
-  top: 60%;
-  left: 50%;
+.title {
+  display: flex;
+  justify-content: center;
+
   color: white;
+  width: 8rem;
+}
+
+.summary {
+  color: white;
+  height: 3rem;
 }
 
 @media screen and (max-width: 1024px) {
