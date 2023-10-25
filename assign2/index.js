@@ -130,9 +130,12 @@ deleteButton.forEach((button) => {
 //5.a,b,c
 const footerButton = document.querySelector("#modalButton");
 const modal = document.getElementById("modal");
+const modalBg = document.querySelector(".modal_background");
 
+//심화 3.a
 footerButton.addEventListener("click", () => {
   modal.classList.replace(HIDDEN_CLASS, "modalStyle");
+  modalBg.classList.remove(HIDDEN_CLASS);
 });
 
 const incomeCheck = document.querySelector("#income");
@@ -213,6 +216,5 @@ saveBtn.addEventListener("click", () => addList());
 const closeModalBtn = document.getElementById("close_button");
 closeModalBtn.addEventListener("click", () => {
   modal.style.display = "none";
+  modalBg.classList.add(HIDDEN_CLASS);
 });
-
-//심화 2번
