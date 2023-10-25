@@ -263,14 +263,12 @@ footer button {
 }
 
 /* 모달 */
-#modal {
+.modalStyle {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #89cff0;
-
-  /* display: none; */
 }
 
 #modal div {

@@ -130,8 +130,9 @@ deleteButton.forEach((button) => {
 //5.a,b,c
 const footerButton = document.querySelector("#modalButton");
 const modal = document.getElementById("modal");
+
 footerButton.addEventListener("click", () => {
-  modal.style.display = "flex";
+  modal.classList.replace(HIDDEN_CLASS, "modalStyle");
 });
 
 const incomeCheck = document.querySelector("#income");
