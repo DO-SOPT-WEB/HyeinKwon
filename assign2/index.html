@@ -57,7 +57,14 @@
       <hr />
 
       <section id="list"></section>
+
+      <section class="hidden" id="delete_modal">
+        <h2>정말 삭제하시겠습니까?</h2>
+        <button id="delete_confirm" type="button">예</button>
+        <button id="not_delete_confirm" type="button">아니요</button>
+      </section>
     </main>
+
     <div class="hidden modal_background"></div>
     <section id="modal" class="hidden">
       <h1>내역 추가</h1>
@@ -97,12 +104,12 @@
       <h2>내용</h2>
       <input id="summary_input" />
       <div class="button_wrapper">
-        <button id="save_button">저장하기</button>
-        <button id="close_button">닫기</button>
+        <button type="button" id="save_button">저장하기</button>
+        <button type="button" id="close_button">닫기</button>
       </div>
     </section>
     <footer>
-      <button id="modalButton">+</button>
+      <button type="button" id="modalButton">+</button>
     </footer>
     <script type="module" src="index.js"></script>
   </body>

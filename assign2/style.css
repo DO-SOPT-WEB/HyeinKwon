@@ -337,3 +337,38 @@ footer button {
     transform: translateY(0);
   }
 }
+
+#delete_modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  background-color: var(--subcolor01);
+
+  gap: 0.5rem;
+  width: 15rem;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+#delete_modal button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--backgroundcolor);
+  border: none;
+  border-radius: 3px;
+
+  box-shadow: 1px 1px 1px var(--maincolor);
+  width: 5rem;
+  cursor: pointer;
+}
+
+#delete_modal button:hover {
+  background-color: var(--maincolor);
+  box-shadow: 1px 1px 1px var(--backgroundcolor);
+}
