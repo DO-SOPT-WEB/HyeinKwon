@@ -156,7 +156,6 @@ incomeCheck.addEventListener("change", () => selectCheck());
 expenditureCheck.addEventListener("change", () => selectCheck());
 
 //5.d
-
 const saveBtn = document.getElementById("save_button");
 const howMuchInput = document.getElementById("howmuch_input");
 const summaryInput = document.getElementById("summary_input");
@@ -191,8 +190,13 @@ function addList() {
     minusMoney.innerText = TOTAL_OUTMONEY;
   });
 
-  makeList(newList, list);
-  alert("저장되었습니다.");
+  console.log(howMuchSummaried);
+  if (howMuchSummaried.length == 0 || summarySummarized.length == 0) {
+    alert("모두 입력해주세요");
+  } else {
+    makeList(newList, list);
+    alert("저장되었습니다.");
+  }
 }
 
 saveBtn.addEventListener("click", () => addList());
@@ -202,3 +206,5 @@ const closeModalBtn = document.getElementById("close_button");
 closeModalBtn.addEventListener("click", () => {
   modal.style.display = "none";
 });
+
+//심화 2번
