@@ -215,6 +215,6 @@ saveBtn.addEventListener("click", () => addList());
 //5.e
 const closeModalBtn = document.getElementById("close_button");
 closeModalBtn.addEventListener("click", () => {
-  modal.style.display = "none";
+  modal.classList.replace("modalStyle", HIDDEN_CLASS);
   modalBg.classList.add(HIDDEN_CLASS);
 });

@@ -267,10 +267,18 @@ footer button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  position: absolute;
+  bottom: 0;
+
+  width: 375px;
   align-items: center;
   background-color: #89cff0;
   border-radius: 8px;
   z-index: 999;
+
+  /* 심화 3.b */
+  animation: slider 1.5s;
 }
 
 #modal div {
@@ -305,4 +313,13 @@ footer button {
   height: 100vh;
 
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes slider {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
