@@ -4,7 +4,6 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
 // 1.a , b
-// const firstImages = $(".first_pic_wrapper img");
 const firstImages = document.querySelectorAll(".first_section_pic");
 
 //더보기 버튼 생성
@@ -52,7 +51,7 @@ firstImages.forEach((pic, index) => {
     });
   });
 
-  pic.addEventListener("mouseleave", function (e) {
+  pic.addEventListener("mouseleave", function () {
     pic.classList.remove("addTitle");
     h2.innerText = "";
     p.innerText = "";
@@ -71,14 +70,28 @@ window.addEventListener("scroll", () => {
   gotopBtn.style.opacity = opacity;
 });
 
-// if (pHeight < summaryHeight) {
-//   div.appendChild(moreBtn);
-//   moreBtn.addEventListener("click", function () {
-//     p.style.overflow = "visible";
-//     if ((p.style.overflow = "visible")) {
-//       moreBtn.style.display = "none";
-//     }
-//   });
-// }
-
 //심화 2번
+const preview = document.getElementById("preview");
+const article = document.getElementById("img_wrapper");
+const toLeft = document.getElementById("toLeft");
+const toRight = document.getElementById("toRight");
+
+toLeft.addEventListener("click", () => {
+  const articleWidth = article.scrollLeft;
+  const articleWidthh = article.scrollRight;
+  console.log(articleWidth, articleWidthh);
+  article.scrollTo({
+    left: articleWidth - 150,
+    behavior: "smooth",
+  });
+});
+
+toRight.addEventListener("click", () => {
+  const articleWidth = article.scrollLeft;
+  const articleWidthh = article.scrollRight;
+  console.log(articleWidth, articleWidthh);
+  article.scrollTo({
+    left: articleWidth + 150,
+    behavior: "smooth",
+  });
+});
