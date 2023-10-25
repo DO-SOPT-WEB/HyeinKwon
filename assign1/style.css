@@ -233,6 +233,10 @@ nav article a:hover {
   -webkit-box-orient: vertical;
 }
 
+.summaryAll {
+  color: white;
+}
+
 .more_button {
   display: flex;
   justify-content: center;

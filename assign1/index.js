@@ -18,6 +18,9 @@ firstImages.forEach((pic, index) => {
   const p = document.createElement("p");
   p.classList.add("summary");
   const { title, summary } = DATA[index];
+
+  let moreBtnClicked = false;
+
   pic.addEventListener("mouseover", function () {
     pic.childNodes[1].classList.add("addTitle");
     pic.classList.add("addTitle");
@@ -33,23 +36,29 @@ firstImages.forEach((pic, index) => {
     //심화 1번
     const pHeight = p.clientHeight;
     const summaryHeight = p.scrollHeight;
+
     if (pHeight < summaryHeight) {
       div.appendChild(moreBtn);
-      moreBtn.addEventListener("click", function () {
-        p.style.overflow = "visible";
-        if ((p.style.overflow = "visible")) {
-          moreBtn.style.display = "none";
-        }
+      moreBtn.addEventListener("click", () => {
+        p.classList.replace("summary", "summaryAll");
+        moreBtn.style.display = "none";
+        moreBtnClicked = true;
       });
     }
+    moreBtn.addEventListener("click", () => {
+      p.classList.replace("summary", "summaryAll");
+
+      moreBtn.style.display = "none";
+    });
   });
 
   pic.addEventListener("mouseleave", function (e) {
     pic.classList.remove("addTitle");
     h2.innerText = "";
     p.innerText = "";
-    p.style.overflow = "hidden";
-    moreBtn.style.display = "flex";
+    p.classList.replace("summaryAll", "summary");
+    moreBtn.style.display = "initial";
+    moreBtnClicked = false;
   });
 });
 
@@ -61,5 +70,15 @@ window.addEventListener("scroll", () => {
   const opacity = scrollY / maxScroll;
   gotopBtn.style.opacity = opacity;
 });
+
+// if (pHeight < summaryHeight) {
+//   div.appendChild(moreBtn);
+//   moreBtn.addEventListener("click", function () {
+//     p.style.overflow = "visible";
+//     if ((p.style.overflow = "visible")) {
+//       moreBtn.style.display = "none";
+//     }
+//   });
+// }
 
 //심화 2번
