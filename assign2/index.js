@@ -160,6 +160,14 @@ const saveBtn = document.getElementById("save_button");
 const howMuchInput = document.getElementById("howmuch_input");
 const summaryInput = document.getElementById("summary_input");
 
+//심화 2.b
+howMuchInput.addEventListener("input", (e) => {
+  if (isNaN(e.target.value)) {
+    alert("숫자만 입력 가능합니다");
+    howMuchInput.value = null;
+  }
+});
+
 function addList() {
   let selectedOption = selectOption.value;
   let howMuchSummaried = howMuchInput.value;
@@ -190,7 +198,7 @@ function addList() {
     minusMoney.innerText = TOTAL_OUTMONEY;
   });
 
-  console.log(howMuchSummaried);
+  //심화 2.a
   if (howMuchSummaried.length == 0 || summarySummarized.length == 0) {
     alert("모두 입력해주세요");
   } else {
