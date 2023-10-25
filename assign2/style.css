@@ -271,11 +271,17 @@ footer button {
   position: absolute;
   bottom: 0;
 
+  gap: 0.1rem;
   width: 375px;
   align-items: center;
-  background-color: #89cff0;
-  border-radius: 8px;
+  background-color: var(--backgroundcolor);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   z-index: 999;
+
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  box-shadow: 3px 3px 13px var(--subcolor01);
 
   /* 심화 3.b */
   animation: slider 1.5s;
@@ -283,17 +289,25 @@ footer button {
 
 #modal div {
   display: flex;
-  gap: 0.2rem;
+  gap: 0.5rem;
+}
+
+.button_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 
 #modal button {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 10rem;
   padding: 0.3rem 1rem;
 
   border: none;
-  border-radius: 10%;
+  border-radius: 3%;
   background-color: var(--subcolor01);
   box-shadow: 1px 1px 1px var(--subcolor02);
 }
