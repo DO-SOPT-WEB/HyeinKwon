@@ -20,7 +20,9 @@ function makeList(MoneyList, container) {
     h4.innerText = summary;
 
     const h3 = document.createElement("h3");
-    h3.textContent = getto ? money : "-" + money;
+    h3.innerText = getto
+      ? money.toLocaleString()
+      : "-" + money.toLocaleString();
     h3.classList.add(getto ? "plus" : "minus");
 
     const div = document.createElement("div");
@@ -47,7 +49,7 @@ function myBalance(MoneyList) {
   MoneyList.forEach((data) => {
     const { money, getto } = data;
     INIT_BALANCE += getto ? money : -money;
-    h1.innerText = INIT_BALANCE;
+    h1.innerText = INIT_BALANCE.toLocaleString();
   });
 }
 
@@ -62,8 +64,8 @@ const minusMoney = document.getElementById("minus_money");
 HISTORY_LIST.forEach((element) => {
   const { money, getto } = element;
   getto ? (IN_MONEY += money) : (OUT_MONEY += money);
-  plusMoney.innerText = IN_MONEY;
-  minusMoney.innerText = OUT_MONEY;
+  plusMoney.innerText = IN_MONEY.toLocaleString();
+  minusMoney.innerText = OUT_MONEY.toLocaleString();
 });
 
 //3.
@@ -144,6 +146,7 @@ const incomeSelect = document.querySelector("#income_select");
 const expenditureSelect = document.querySelector("#expenditure_select");
 let selectOption = document.querySelector(".modal_select");
 
+//모달 옵션
 function selectCheck() {
   if (incomeCheck.checked) {
     expenditureSelect.style.display = "none";
@@ -165,22 +168,33 @@ const summaryInput = document.getElementById("summary_input");
 
 //심화 2.b
 howMuchInput.addEventListener("input", (e) => {
-  if (isNaN(e.target.value)) {
+  if (isNaN(e.target.value.charAt(0))) {
     alert("숫자만 입력 가능합니다");
     howMuchInput.value = null;
+    return;
+  } else {
+    let value = howMuchInput.value.replace(/,/g, "");
+    value = addThousnadsSeparator(value);
+    howMuchInput.value = value;
+    return;
   }
 });
 
+//심화 5
+function addThousnadsSeparator(num) {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function addList() {
   let selectedOption = selectOption.value;
-  let howMuchSummaried = howMuchInput.value;
+  let howMuchSummaried = Number(howMuchInput.value);
   let summarySummarized = summaryInput.value;
 
   let newList = [
     {
       title: selectedOption,
       summary: summarySummarized,
-      money: howMuchSummaried,
+      money: howMuchSummaried.toLocaleString(),
       getto: incomeCheck.checked ? true : false,
     },
   ];
@@ -190,15 +204,17 @@ function addList() {
   let MODAL_OUTMONEY = 0;
   newList.forEach((data) => {
     const { money, getto } = data;
-    ADD_BALANCE += getto ? money : -money;
+    ADD_BALANCE += getto ? money.toLocaleString() : -money.toLocaleString();
     let TOTAL_BALANCE = Number(ADD_BALANCE) + Number(INIT_BALANCE);
-    h1.innerText = TOTAL_BALANCE;
+    h1.innerText = TOTAL_BALANCE.toLocaleString();
 
-    getto ? (MODAL_INMONEY += money) : (MODAL_OUTMONEY += money);
+    getto
+      ? (MODAL_INMONEY += money.toLocaleString())
+      : (MODAL_OUTMONEY += money.toLocaleString());
     let TOTAL_INMONEY = Number(IN_MONEY) + Number(MODAL_INMONEY);
     let TOTAL_OUTMONEY = Number(OUT_MONEY) + Number(MODAL_OUTMONEY);
-    plusMoney.innerText = TOTAL_INMONEY;
-    minusMoney.innerText = TOTAL_OUTMONEY;
+    plusMoney.innerText = TOTAL_INMONEY.toLocaleString();
+    minusMoney.innerText = TOTAL_OUTMONEY.toLocaleString();
   });
 
   //심화 2.a
