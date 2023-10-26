@@ -269,3 +269,8 @@ function deleteList(deletedId) {
 closeDeleteModalButton.addEventListener("click", () => {
   deleteModal.classList.replace("delete_modal", HIDDEN_CLASS);
 });
+
+const goToManageCategory = document.getElementById("manage_category");
+goToManageCategory.addEventListener("click", () => {
+  location.href = "category.html";
+});

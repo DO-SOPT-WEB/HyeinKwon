@@ -58,7 +58,7 @@ hr {
 }
 
 /* 헤더부분 */
-#main_header {
+header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -267,7 +267,8 @@ footer button:hover {
   background-color: var(--maincolor);
 }
 
-#manage_category > img {
+#manage_category > img,
+#goto_home {
   width: 1.5rem;
   height: 1.5rem;
 }
@@ -385,4 +386,14 @@ footer button:hover {
 #delete_modal button:hover {
   background-color: var(--maincolor);
   box-shadow: 1px 1px 1px var(--backgroundcolor);
+}
+
+/* 카테고리 관리 페이지 */
+#plus_category,
+#minus_category {
+  display: flex;
+
+  border-radius: 3px;
+  border: 1px solid var(--maincolor);
+  background-color: white;
 }
