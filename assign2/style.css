@@ -239,9 +239,9 @@ h1 {
 /* 리스트하단버튼 */
 footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-
+  gap: 0.2rem;
   width: 100%;
   margin-top: 2rem;
 }
@@ -251,11 +251,25 @@ footer button {
   align-items: center;
   justify-content: center;
 
-  width: 80%;
   border: none;
-  border-radius: 5%;
+  border-radius: 5px;
 
   background-color: var(--subcolor01);
+  box-shadow: 2px 2px 2px var(--maincolor);
+}
+
+#modalButton {
+  margin-left: 2rem;
+  width: 60%;
+}
+
+footer button:hover {
+  background-color: var(--maincolor);
+}
+
+#manage_category > img {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .hidden {
