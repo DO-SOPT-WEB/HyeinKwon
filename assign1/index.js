@@ -38,15 +38,15 @@ firstImages.forEach((pic, index) => {
 
     if (pHeight < summaryHeight) {
       div.appendChild(moreBtn);
+      !moreBtnClicked ? (moreBtn.style.display = "flex") : null;
       moreBtn.addEventListener("click", () => {
         p.classList.replace("summary", "summaryAll");
         moreBtn.style.display = "none";
-        moreBtnClicked = true;
       });
     }
     moreBtn.addEventListener("click", () => {
       p.classList.replace("summary", "summaryAll");
-
+      moreBtnClicked = true;
       moreBtn.style.display = "none";
     });
   });
@@ -56,7 +56,7 @@ firstImages.forEach((pic, index) => {
     h2.innerText = "";
     p.innerText = "";
     p.classList.replace("summaryAll", "summary");
-    moreBtn.style.display = "initial";
+    moreBtn.style.display = "none";
     moreBtnClicked = false;
   });
 });
