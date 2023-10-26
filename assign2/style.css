@@ -338,7 +338,7 @@ footer button {
   }
 }
 
-#delete_modal {
+.delete_modal {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -354,7 +354,7 @@ footer button {
   border-radius: 5px;
 }
 
-#delete_modal button {
+.delete_modal button {
   display: flex;
   justify-content: center;
   align-items: center;
