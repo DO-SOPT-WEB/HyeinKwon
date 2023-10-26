@@ -389,11 +389,51 @@ footer button:hover {
 }
 
 /* 카테고리 관리 페이지 */
-#plus_category,
-#minus_category {
+.category_page {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+  gap: 2.3rem;
+}
 
+.category > h2 {
+  font-family: "NPSfontBold";
+}
+
+.category_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
   border-radius: 3px;
-  border: 1px solid var(--maincolor);
+  border: 3px solid var(--maincolor);
   background-color: white;
+  margin-top: 0.8rem;
+}
+
+.category_wrapper div {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.category_wrapper div > h3 {
+  display: flex;
+  justify-content: center;
+  border: 2px solid var(--subcolor01);
+  width: 3rem;
+}
+
+.category_wrapper input {
+  border: none;
+  border-bottom: 1px solid var(--maincolor);
+  background-color: var(--subcolor02);
+  border-radius: 2px;
+  margin: 2rem;
+}
+
+#category_footer {
+  display: flex;
+  justify-content: center;
 }
