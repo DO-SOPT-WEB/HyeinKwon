@@ -110,25 +110,6 @@ function hiddenList(listWrapper) {
 inputPlus.addEventListener("change", () => filterList());
 inputMinus.addEventListener("change", () => filterList());
 
-//4.
-const deleteButton = document.querySelectorAll(".money_and_btn > button");
-
-function deleteList(deleteId) {
-  const listWrapper = document.querySelectorAll(".list_wrapper");
-  listWrapper.forEach((list) => {
-    if (list.classList.contains(deleteId)) {
-      list.remove();
-    }
-  });
-}
-
-deleteButton.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    const clickedButton = e.currentTarget.classList[0];
-    deleteList(clickedButton);
-  });
-});
-
 //5.a,b,c
 const footerButton = document.querySelector("#modalButton");
 const modal = document.getElementById("modal");
@@ -233,4 +214,58 @@ const closeModalBtn = document.getElementById("close_button");
 closeModalBtn.addEventListener("click", () => {
   modal.classList.replace("modalStyle", HIDDEN_CLASS);
   modalBg.classList.add(HIDDEN_CLASS);
+});
+
+//심화 1번 + 기본 4번
+const deleteButton = document.querySelectorAll(".money_and_btn > button");
+
+const deleteModal = document.getElementById("delte_modal_wrapper");
+const deleteListButton = document.getElementById("delete_confirm");
+const closeDeleteModalButton = document.getElementById("not_delete_confirm");
+
+deleteButton.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    deleteModal.classList.replace(HIDDEN_CLASS, "delete_modal");
+    const deleteConfirmList = e.target.classList[0];
+    deleteListButton.addEventListener("click", () => {
+      deleteList(deleteConfirmList);
+    });
+  });
+});
+
+function deleteList(deletedId) {
+  const lists = document.querySelectorAll(".list_wrapper");
+  lists.forEach((list) => {
+    const plusMoney = document.getElementById("plus_money");
+    const minusMoney = document.getElementById("minus_money");
+
+    if (list.classList.contains(deletedId)) {
+      const h3 = list.querySelector("h3");
+      const deletedMoney = parseInt(h3.innerText.replace(/,/g, ""), 10);
+
+      if (h3.classList.contains("plus")) {
+        plusMoney.innerText = (
+          parseInt(plusMoney.innerText.replace(/,/g, ""), 10) - deletedMoney
+        ).toLocaleString();
+
+        h1.innerText = (
+          parseInt(h1.innerText.replace(/,/g, ""), 10) - deletedMoney
+        ).toLocaleString();
+      } else if (h3.classList.contains("minus")) {
+        minusMoney.innerText = (
+          parseInt(minusMoney.innerText.replace(/,/g, ""), 10) + deletedMoney
+        ).toLocaleString();
+
+        h1.innerText = (
+          parseInt(h1.innerText.replace(/,/g, ""), 10) - deletedMoney
+        ).toLocaleString();
+      }
+      list.remove();
+      deleteModal.classList.replace("delete_modal", HIDDEN_CLASS);
+    }
+  });
+}
+
+closeDeleteModalButton.addEventListener("click", () => {
+  deleteModal.classList.replace("delete_modal", HIDDEN_CLASS);
 });
