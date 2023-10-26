@@ -10,15 +10,23 @@
     <header>
       <h1>카테고리 관리</h1>
     </header>
-    <main>
-      <section id="plus_category">
+    <main class="category_page">
+      <section class="category">
         <h2>수입 카테고리</h2>
+        <article class="category_wrapper">
+          <div id="plus"></div>
+          <input id="plus_input" type="text" />
+        </article>
       </section>
-      <section id="minus_category">
+      <section class="category">
         <h2>지출 카테고리</h2>
+        <article class="category_wrapper">
+          <div id="minus"></div>
+          <input id="minus_input" type="text" />
+        </article>
       </section>
     </main>
-    <footer>
+    <footer id="category_footer">
       <button type="button" id="goto_home">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -33,5 +41,5 @@
       </button>
     </footer>
   </body>
-  <script type="module" src="index.js"></script>
+  <script type="module" src="category.js"></script>
 </html>
