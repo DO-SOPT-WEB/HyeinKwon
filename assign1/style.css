@@ -160,21 +160,21 @@ nav {
   color: white;
 }
 
-nav article {
+nav ul {
   display: flex;
   flex-direction: row;
   gap: 1rem;
   color: var(--subcolor01);
 }
 
-nav > article a {
+nav > ul li a {
   text-decoration: none;
   color: white;
   text-shadow: 1px 1px 1px var(--maincolor);
   cursor: pointer;
 }
 
-nav article a:hover {
+nav > ul li a:hover {
   text-decoration: underline;
   color: var(--subcolor03);
   text-shadow: 1px 1px 1px var(--maincolor);
