@@ -1,0 +1,256 @@
+@import "./reset.css";
+@font-face {
+  font-family: "NPSfontBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SUITE-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --maincolor: #ff8080;
+  --subcolor01: #ffcf96;
+  --backgroundcolor: #f6fdc3;
+  --subcolor02: #cdfad5;
+  --blue: #89cff0;
+  --red: #f05650;
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 375px;
+  height: 667px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  font-family: SUITE-Regular;
+
+  width: 375px;
+  height: 667px;
+  background-color: var(--backgroundcolor);
+}
+
+.plus {
+  color: var(--blue);
+}
+
+.minus {
+  color: var(--red);
+}
+
+hr {
+  color: var(--maincolor);
+  margin-bottom: 2vh;
+}
+
+/* 헤더부분 */
+#main_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  margin-bottom: 1vh;
+
+  border-radius: 3%;
+
+  background-color: var(--subcolor02);
+
+  font-family: NPSfontBold;
+}
+
+/* 나의 자산부분 */
+#my_money {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 80%;
+  padding: 2rem;
+  border: solid 5px var(--maincolor);
+  border-radius: 5%;
+
+  background-color: whitesmoke;
+}
+
+#my_money h2,
+h1 {
+  font-family: NPSfontBold;
+  margin: 0.3rem;
+}
+
+#my_money .plus,
+.minus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+#money_wrapper {
+  gap: 0.5rem;
+}
+
+#money_wrapper *,
+#money_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#plus_ic,
+#minus_ic {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+
+#plus_ic {
+  border: 1.5px solid var(--blue);
+}
+
+#minus_ic {
+  border: 1.5px solid var(--red);
+}
+
+/* 네비게이션부분 */
+#nav_section {
+  display: flex;
+  flex-direction: column;
+  height: 3vh;
+  margin-bottom: 1.5rem;
+}
+
+#nav_section * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#goback_btn,
+#gofront_btn {
+  border: none;
+  background-color: var(--backgroundcolor);
+}
+
+#list_btn_wrapper {
+  width: 100%;
+  justify-content: space-between;
+}
+
+#nav_section .btn_wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn_wrapper label {
+  background-color: var(--subcolor02);
+  padding: 0.2rem 0.5rem;
+  border: none;
+  border-radius: 10%;
+
+  box-shadow: 3px 3px var(--subcolor01);
+
+  cursor: pointer;
+}
+
+#input_minus,
+#input_plus {
+  display: none;
+}
+
+/* 리스트내역 */
+#list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 1rem;
+  height: 60%;
+
+  overflow-y: scroll;
+}
+
+.list_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 1rem;
+  width: 90%;
+  height: 50%;
+
+  border: 3px solid var(--subcolor01);
+  border-radius: 10px;
+
+  background-color: var(--subcolor02);
+}
+
+.list_wrapper button {
+  display: flex;
+
+  border: none;
+}
+
+.list_wrapper h4 {
+  width: 10rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.money_and_btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  gap: 0.01rem;
+}
+
+.money_and_btn button {
+  display: flex;
+  width: 1rem;
+  height: 1rem;
+
+  border-radius: 50%;
+
+  background-color: var(--subcolor01);
+}
+
+/* 리스트하단버튼 */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+footer button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 80%;
+  border: none;
+  border-radius: 5%;
+
+  background-color: var(--subcolor01);
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>혠아 돈좀 애껴라</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header id="main_header">
+      <h1>혠니의 가계뷰</h1>
+    </header>
+    <main>
+      <section id="my_money">
+        <h2>나의 자산</h2>
+        <h3>5000000</h3>
+        <div id="money_wrapper">
+          <div class="plus">
+            <span id="plus_ic">+</span>
+            <span>300000</span>
+          </div>
+          <div class="minus">
+            <span id="minus_ic">-</span>
+            <span>50300</span>
+          </div>
+        </div>
+      </section>
+
+      <hr />
+
+      <section id="nav_section">
+        <nav>
+          <button type="button" id="goback_btn">&lt;</button>
+          10월 15일
+          <button type="button" id="gofront_btn">&gt;</button>
+        </nav>
+        <article id="list_btn_wrapper">
+          <h4>내역 리스트</h4>
+          <div class="btn_wrapper">
+            <input
+              type="checkbox"
+              id="input_plus"
+              class="input_checkbox"
+              checked /><label class="plus" for="input_plus">수입</label>
+            <input
+              type="checkbox"
+              id="input_minus"
+              class="input_checkbox"
+              checked /><label class="minus" for="input_minus">지출</label>
+          </div>
+        </article>
+      </section>
+
+      <hr />
+
+      <section id="list">
+        <article class="list_wrapper">
+          <h5>식비</h5>
+          <h4>에베레스트 하남스타필드점</h4>
+
+          <div class="money_and_btn">
+            <button>x</button>
+            <h3 class="minus">-39000</h3>
+          </div>
+        </article>
+        <article class="list_wrapper">
+          <h5>카페</h5>
+          <h4>젤라띠 젤라또</h4>
+
+          <div class="money_and_btn">
+            <button>x</button>
+            <h3 class="minus">-5500</h3>
+          </div>
+        </article>
+        <article class="list_wrapper">
+          <h5>알바비</h5>
+          <h4>이번달 과외비</h4>
+
+          <div class="money_and_btn">
+            <button>x</button>
+
+            <h3 class="plus">+6000000</h3>
+          </div>
+        </article>
+        <div class="list_wrapper">
+          <h5>쇼핑</h5>
+          <h4>러쉬 하남스타필드점</h4>
+
+          <article class="money_and_btn">
+            <button>x</button>
+            <h3 class="minus">-35000</h3>
+          </article>
+        </div>
+        <article class="list_wrapper">
+          <h5>식비</h5>
+          <h4>등촌샤브칼국수 회기역점</h4>
+
+          <div class="money_and_btn">
+            <button>x</button>
+            <h3 class="minus">-24000</h3>
+          </div>
+        </article>
+        <article class="list_wrapper">
+          <h5>수입</h5>
+          <h4>10월 용돈</h4>
+
+          <div class="money_and_btn">
+            <button>x</button>
+            <h3 class="plus">800000</h3>
+          </div>
+        </article>
+        <article class="list_wrapper">
+          <h5>기타</h5>
+          <h4>삼천리자전거 둔촌동점</h4>
+
+          <div class="money_and_btn">
+            <button>x</button>
+            <h3 class="minus">-200000</h3>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <button type="button">+</button>
+    </footer>
+  </body>
+</html>
