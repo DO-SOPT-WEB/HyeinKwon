@@ -43,13 +43,13 @@ makeList(HISTORY_LIST, list);
 
 //나의 자신 반영
 let INIT_BALANCE = 0;
-const h1 = document.querySelector("#my_money > h1");
+const totalMoney = document.querySelector("#my_money > h3");
 
 function myBalance(MoneyList) {
   MoneyList.forEach((data) => {
     const { money, getto } = data;
     INIT_BALANCE += getto ? money : -money;
-    h1.innerText = INIT_BALANCE.toLocaleString();
+    totalMoney.innerText = INIT_BALANCE.toLocaleString();
   });
 }
 
@@ -215,7 +215,7 @@ function addList() {
     const { money, getto } = data;
     ADD_BALANCE += getto ? money.toLocaleString() : -money.toLocaleString();
     let TOTAL_BALANCE = Number(ADD_BALANCE) + Number(INIT_BALANCE);
-    h1.innerText = TOTAL_BALANCE.toLocaleString();
+    totalMoney.innerText = TOTAL_BALANCE.toLocaleString();
 
     getto
       ? (MODAL_INMONEY += money.toLocaleString())
@@ -276,16 +276,16 @@ function deleteList(deletedId) {
           parseInt(plusMoney.innerText.replace(/,/g, ""), 10) - deletedMoney
         ).toLocaleString();
 
-        h1.innerText = (
-          parseInt(h1.innerText.replace(/,/g, ""), 10) - deletedMoney
+        totalMoney.innerText = (
+          parseInt(totalMoney.innerText.replace(/,/g, ""), 10) - deletedMoney
         ).toLocaleString();
       } else if (h3.classList.contains("minus")) {
         minusMoney.innerText = (
           parseInt(minusMoney.innerText.replace(/,/g, ""), 10) + deletedMoney
         ).toLocaleString();
 
-        h1.innerText = (
-          parseInt(h1.innerText.replace(/,/g, ""), 10) - deletedMoney
+        totalMoney.innerText = (
+          parseInt(totalMoney.innerText.replace(/,/g, ""), 10) - deletedMoney
         ).toLocaleString();
       }
       list.remove();

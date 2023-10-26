@@ -14,7 +14,7 @@
     <main>
       <section id="my_money">
         <h2>나의 자산</h2>
-        <h1></h1>
+        <h3></h3>
         <div id="money_wrapper">
           <div class="plus">
             <span id="plus_ic">+</span>
@@ -31,9 +31,9 @@
 
       <section id="nav_section">
         <nav>
-          <button id="goback_btn">&lt;</button>
+          <button type="button" id="goback_btn">&lt;</button>
           10월 15일
-          <button id="gofront_btn">&gt;</button>
+          <button type="button" id="gofront_btn">&gt;</button>
         </nav>
         <article id="list_btn_wrapper">
           <h4>내역 리스트</h4>
@@ -75,8 +75,7 @@
             id="income"
             type="radio"
             class="plus"
-            value="plusmoney"
-            checked />
+            value="plusmoney" />
           <span>수입</span></label
         >
         <label for="expenditure">
@@ -97,9 +96,9 @@
         id="expenditure_select"
         name="모할래"></select>
       <h2>금액</h2>
-      <input id="howmuch_input" />
+      <input type="text" id="howmuch_input" />
       <h2>내용</h2>
-      <input id="summary_input" />
+      <input type="text" id="summary_input" />
       <div class="button_wrapper">
         <button type="button" id="save_button">저장하기</button>
         <button type="button" id="close_button">닫기</button>

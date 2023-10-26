@@ -90,8 +90,8 @@ header {
   background-color: whitesmoke;
 }
 
-#my_money h2,
-h1 {
+#my_money > h3,
+#my_money > h2 {
   font-family: NPSfontBold;
   margin: 0.3rem;
 }
