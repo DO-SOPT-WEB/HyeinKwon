@@ -13,6 +13,7 @@ const category = HISTORY_LIST.map((list) => {
 function saveToLocalStorage(data) {
   window.localStorage.setItem("key", JSON.stringify(data));
 }
+saveToLocalStorage(category);
 
 const plusInput = document.getElementById("plus_input");
 const minusInput = document.getElementById("minus_input");

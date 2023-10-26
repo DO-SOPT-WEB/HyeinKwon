@@ -41,7 +41,7 @@ function makeList(MoneyList, container) {
 
 makeList(HISTORY_LIST, list);
 
-//나의 자신 반영
+//나의 자산 반영
 let INIT_BALANCE = 0;
 const totalMoney = document.querySelector("#my_money > h3");
 
@@ -79,10 +79,10 @@ function filterList() {
   const plusListWrapper = document.querySelectorAll(".plus_list_wrapper");
   const minusListWrapper = document.querySelectorAll(".minus_list_wrapper");
 
-  if (inputPlus.checked) {
-    showList(plusListWrapper);
-  } else {
+  if (!inputPlus.checked) {
     hiddenList(plusListWrapper);
+  } else if (inputPlus.checked) {
+    showList(plusListWrapper);
   }
 
   if (inputMinus.checked) {
@@ -196,14 +196,14 @@ function addThousnadsSeparator(num) {
 
 function addList() {
   let selectedOption = selectOption.value;
-  let howMuchSummaried = Number(howMuchInput.value);
+  let howMuchSummaried = parseInt(howMuchInput.value.replace(/,/g, ""), 10);
   let summarySummarized = summaryInput.value;
 
   let newList = [
     {
       title: selectedOption,
       summary: summarySummarized,
-      money: howMuchSummaried.toLocaleString(),
+      money: howMuchSummaried,
       getto: incomeCheck.checked ? true : false,
     },
   ];
@@ -213,13 +213,11 @@ function addList() {
   let MODAL_OUTMONEY = 0;
   newList.forEach((data) => {
     const { money, getto } = data;
-    ADD_BALANCE += getto ? money.toLocaleString() : -money.toLocaleString();
+    ADD_BALANCE += getto ? money : -money;
     let TOTAL_BALANCE = Number(ADD_BALANCE) + Number(INIT_BALANCE);
     totalMoney.innerText = TOTAL_BALANCE.toLocaleString();
 
-    getto
-      ? (MODAL_INMONEY += money.toLocaleString())
-      : (MODAL_OUTMONEY += money.toLocaleString());
+    getto ? (MODAL_INMONEY += money) : (MODAL_OUTMONEY += money);
     let TOTAL_INMONEY = Number(IN_MONEY) + Number(MODAL_INMONEY);
     let TOTAL_OUTMONEY = Number(OUT_MONEY) + Number(MODAL_OUTMONEY);
     plusMoney.innerText = TOTAL_INMONEY.toLocaleString();

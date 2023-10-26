@@ -157,11 +157,12 @@ header {
 
 #nav_section .btn_wrapper {
   display: flex;
-  gap: 1rem;
+  gap: 0.3rem;
 }
 
 .btn_wrapper label {
   background-color: var(--subcolor02);
+
   padding: 0.2rem 0.5rem;
   border: none;
   border-radius: 10%;
@@ -169,11 +170,6 @@ header {
   box-shadow: 3px 3px var(--subcolor01);
 
   cursor: pointer;
-}
-
-#input_minus,
-#input_plus {
-  display: none;
 }
 
 /* 리스트내역 */
@@ -195,7 +191,7 @@ header {
 
   padding: 0 1rem;
   width: 90%;
-  height: 50%;
+  height: 5rem;
 
   border: 3px solid var(--subcolor01);
   border-radius: 10px;

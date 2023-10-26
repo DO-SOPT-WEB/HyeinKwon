@@ -31,9 +31,9 @@
 
       <section id="nav_section">
         <nav>
-          <button type="button" type="button" id="goback_btn">&lt;</button>
+          <button type="button" id="goback_btn">&lt;</button>
           10월 15일
-          <button type="button" type="button" id="gofront_btn">&gt;</button>
+          <button type="button" id="gofront_btn">&gt;</button>
         </nav>
         <article id="list_btn_wrapper">
           <h4>내역 리스트</h4>
@@ -41,13 +41,15 @@
             <input
               type="checkbox"
               id="input_plus"
-              class="input_checkbox" /><label class="plus" for="input_plus"
+              class="input_checkbox"
+              checked /><label checked class="plus" for="input_plus"
               >수입</label
             >
             <input
               type="checkbox"
               id="input_minus"
-              class="input_checkbox" /><label class="minus" for="input_minus"
+              class="input_checkbox"
+              checked /><label class="minus" for="input_minus" checked
               >지출</label
             >
           </div>
@@ -75,7 +77,8 @@
             id="income"
             type="radio"
             class="plus"
-            value="plusmoney" />
+            value="plusmoney"
+            checked />
           <span>수입</span></label
         >
         <label for="expenditure">
