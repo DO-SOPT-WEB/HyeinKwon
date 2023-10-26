@@ -127,6 +127,34 @@ const incomeSelect = document.querySelector("#income_select");
 const expenditureSelect = document.querySelector("#expenditure_select");
 let selectOption = document.querySelector(".modal_select");
 
+//심화 4번 1
+let getLocal = window.localStorage.getItem("key");
+let getOption = JSON.parse(getLocal);
+
+const plusOptions = getOption.filter((option) => {
+  return option.isPlus == true;
+});
+
+const minusOptions = getOption.filter((option) => {
+  return option.isPlus != true;
+});
+
+function optionMaking(options) {
+  options.forEach((option) => {
+    const { category, isPlus } = option;
+    const modalOption = document.createElement("option");
+    modalOption.innerText = category;
+    modalOption.value = category;
+
+    isPlus
+      ? incomeSelect.appendChild(modalOption)
+      : expenditureSelect.appendChild(modalOption);
+  });
+}
+
+optionMaking(plusOptions);
+optionMaking(minusOptions);
+
 //모달 옵션
 function selectCheck() {
   if (incomeCheck.checked) {
