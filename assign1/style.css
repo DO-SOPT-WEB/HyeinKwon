@@ -86,33 +86,63 @@ footer {
 }
 
 /* 미리보기 */
-.scroll {
+#preview {
   display: flex;
+  align-items: center;
+
+  width: 100%;
+}
+
+.scroll {
+  width: 100%;
+}
+
+#img_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   overflow-x: scroll;
 }
 
-#preview img {
+#img_wrapper img {
   width: 15rem;
   height: 20rem;
 
   margin: 1.5rem 0.5rem;
 }
 
-#preview img:hover {
+#img_wrapper img:hover {
   animation: img-updown 1s;
 }
 
-.scroll::-webkit-scrollbar {
+#img_wrapper::-webkit-scrollbar {
   border: 2px solid var(--subcolor03);
   border-radius: 10px;
   height: 10px;
 }
 
-.scroll::-webkit-scrollbar-thumb {
+#img_wrapper::-webkit-scrollbar-thumb {
   background-color: var(--subcolor01);
 
   border-radius: 10px;
+}
+
+#preview button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border-radius: 50%;
+  border: none;
+  height: 2rem;
+  width: 2rem;
+  z-index: 999;
+  background-color: var(--maincolor);
+}
+
+#toRight {
+  right: 3rem;
 }
 
 /* 목차 */
@@ -159,13 +189,74 @@ nav > ul li a:hover {
 
   flex-wrap: wrap;
 
-  gap: 0.2rem;
   width: 80rem;
 }
 
 #first_section img {
   width: 15rem;
   height: 15rem;
+}
+
+.first_pic_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.2rem;
+}
+
+.first_section_pic {
+  cursor: pointer;
+  position: relative;
+}
+
+.addTitle {
+  cursor: pointer;
+  filter: brightness(80%);
+}
+
+.title_summary_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  gap: 1rem;
+  z-index: 999;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+
+  color: white;
+}
+
+.summary {
+  color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 3rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.summaryAll {
+  color: white;
+}
+
+.more_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--maincolor02);
+  color: var(--maincolor);
+  border-radius: 3px;
+  border: none;
+  font-family: "OAGothic-ExtraBold";
 }
 
 @media screen and (max-width: 1024px) {
@@ -351,4 +442,7 @@ nav > ul li a:hover {
   background-color: var(--subcolor02);
 
   font-family: Dovemayo_gothic;
+
+  opacity: 0;
+  transition: opacity 0.3s;
 }
