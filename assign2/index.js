@@ -107,8 +107,8 @@ function hiddenList(listWrapper) {
 }
 
 //event 붙이기
-inputPlus.addEventListener("change", () => filterList());
-inputMinus.addEventListener("change", () => filterList());
+inputPlus.addEventListener("change", filterList);
+inputMinus.addEventListener("change", filterList);
 
 //5.a,b,c
 const footerButton = document.querySelector("#modalButton");
@@ -167,8 +167,8 @@ function selectCheck() {
     selectOption = document.querySelector("#expenditure_select");
   }
 }
-incomeCheck.addEventListener("change", () => selectCheck());
-expenditureCheck.addEventListener("change", () => selectCheck());
+incomeCheck.addEventListener("change", selectCheck);
+expenditureCheck.addEventListener("change", selectCheck);
 
 //5.d
 const saveBtn = document.getElementById("save_button");
@@ -177,7 +177,8 @@ const summaryInput = document.getElementById("summary_input");
 
 //심화 2.b
 howMuchInput.addEventListener("input", (e) => {
-  if (isNaN(e.target.value.charAt(0))) {
+  const isNumber = e.target.value.replace(/[^0-9.]/g, "");
+  if (e.target.value != isNumber) {
     alert("숫자만 입력 가능합니다");
     howMuchInput.value = null;
     return;
@@ -225,11 +226,13 @@ function addList() {
   });
 
   //심화 2.a
-  if (howMuchSummaried.length == 0 || summarySummarized.length == 0) {
+  if (!howMuchSummaried || !summarySummarized) {
     alert("모두 입력해주세요");
   } else {
     makeList(newList, list);
     alert("저장되었습니다.");
+    howMuchInput.value = "";
+    summaryInput.value = "";
   }
 }
 
@@ -259,6 +262,12 @@ deleteButton.forEach((button) => {
   });
 });
 
+function updateMoney(element, moneyChange) {
+  const moneyValue = parseInt(element.innerText.replace(/,/g, ""), 10);
+  const newMoneyValue = moneyValue + moneyChange;
+  element.innerText = newMoneyValue.toLocaleString();
+}
+
 function deleteList(deletedId) {
   const lists = document.querySelectorAll(".list_wrapper");
   lists.forEach((list) => {
@@ -268,24 +277,14 @@ function deleteList(deletedId) {
     if (list.classList.contains(deletedId)) {
       const h3 = list.querySelector("h3");
       const deletedMoney = parseInt(h3.innerText.replace(/,/g, ""), 10);
-
       if (h3.classList.contains("plus")) {
-        plusMoney.innerText = (
-          parseInt(plusMoney.innerText.replace(/,/g, ""), 10) - deletedMoney
-        ).toLocaleString();
-
-        totalMoney.innerText = (
-          parseInt(totalMoney.innerText.replace(/,/g, ""), 10) - deletedMoney
-        ).toLocaleString();
+        updateMoney(plusMoney, -deletedMoney);
+        updateMoney(totalMoney, -deletedMoney);
       } else if (h3.classList.contains("minus")) {
-        minusMoney.innerText = (
-          parseInt(minusMoney.innerText.replace(/,/g, ""), 10) + deletedMoney
-        ).toLocaleString();
-
-        totalMoney.innerText = (
-          parseInt(totalMoney.innerText.replace(/,/g, ""), 10) - deletedMoney
-        ).toLocaleString();
+        updateMoney(minusMoney, deletedMoney);
+        updateMoney(totalMoney, -deletedMoney);
       }
+
       list.remove();
       deleteModal.classList.replace("delete_modal", HIDDEN_CLASS);
     }

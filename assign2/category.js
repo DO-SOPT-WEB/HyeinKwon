@@ -39,7 +39,7 @@ minusInput.addEventListener("keypress", (e) => {
 });
 
 function isEntered(e, isPlus) {
-  if (e.keyCode === 13) {
+  if (e.key === "Enter") {
     const h3 = document.createElement("h3");
     h3.innerText = e.target.value;
 
