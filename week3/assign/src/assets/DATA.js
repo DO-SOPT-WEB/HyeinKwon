@@ -1,4 +1,4 @@
-const DATA = [
+export const DATA = [
   {
     category: "실용",
     type: "커플",
