@@ -38,7 +38,3 @@ const Button = styled.button`
     ${({ theme }) => theme.fonts.title02};
   }
 `;
-
-const ButtonLager = styled(Button)`
-  width: 50rem;
-`;
