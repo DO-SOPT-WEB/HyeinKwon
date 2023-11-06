@@ -1,10 +1,9 @@
 import styled from "styled-components";
+import StartByType from "./StartByType";
 
-// eslint-disable-next-line react/prop-types
 export default function ByTypeBtn(props) {
-  console.log(props);
   // eslint-disable-next-line react/prop-types
-  const { isByType, isByRandom, setIsByType } = props;
+  const { isByType, isByRandom, setIsByType, isStart, handleStart } = props;
   function handleClick() {
     console.log("here");
     setIsByType((prev) => !prev);
@@ -15,7 +14,9 @@ export default function ByTypeBtn(props) {
       {!isByRandom && !isByType && (
         <Button onClick={handleClick}>취향대로 추천</Button>
       )}
-      {!isByRandom && isByType && <ButtonLager>취향대로 추천</ButtonLager>}
+      {!isByRandom && isByType && (
+        <StartByType isStart={isStart} handleStart={handleStart} />
+      )}
       {isByRandom && <></>}
     </>
   );
