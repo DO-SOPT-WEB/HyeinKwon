@@ -21,6 +21,8 @@ export default function MainWrapper() {
           isByType={isByType}
           setIsByType={setIsByType}
           isByRandom={isByRandom}
+          isStart={isStart}
+          handleStart={handleStart}
         />
         <ByRandomBtn
           isByRandom={isByRandom}
