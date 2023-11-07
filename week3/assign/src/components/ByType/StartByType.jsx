@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ChooseCategory from "./ChooseCategory";
 export default function StartByType(props) {
   // eslint-disable-next-line react/prop-types
   const { isStart, handleStart } = props;
@@ -12,7 +13,9 @@ export default function StartByType(props) {
           <ButtonLager>취향대로 추천</ButtonLager>
           <StartBtn onClick={handleClickBtn}>시작하기</StartBtn>
         </Wrapper>
-      ) : null}
+      ) : (
+        <ChooseCategory handleStart={handleStart} />
+      )}
     </>
   );
 }
