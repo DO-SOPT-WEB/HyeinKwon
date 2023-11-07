@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import RandomPage from "./RandomPage";
 
-export default function CountDown() {
+export default function CountDown({ handleStart }) {
   const [countDown, setCountDown] = useState(3);
   const [showResult, setShowResult] = useState(false);
 
@@ -23,7 +24,7 @@ export default function CountDown() {
   return (
     <>
       {countDown != 0 ? <CountDownNumber>{countDown}</CountDownNumber> : null}
-      {showResult && <div>히히</div>}
+      {showResult && <RandomPage handleStart={handleStart} />}
     </>
   );
 }
