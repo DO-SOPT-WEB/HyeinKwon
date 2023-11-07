@@ -13,7 +13,7 @@ export default function ByRandomStart({ isStart, handleStart }) {
           <StartBtn onClick={handleClickBtn}>시작하기</StartBtn>
         </Wrapper>
       ) : (
-        <CountDown />
+        <CountDown handleStart={handleStart} />
       )}
     </>
   );
