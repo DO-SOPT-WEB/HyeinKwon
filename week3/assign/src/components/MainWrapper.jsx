@@ -10,7 +10,7 @@ export default function MainWrapper() {
   const [isByRandom, setIsByRandom] = useState(false);
   const [isStart, setIsStart] = useState(false);
   function handleStart() {
-    setIsStart(true);
+    setIsStart((prev) => !prev);
   }
 
   return (
@@ -55,21 +55,4 @@ const BtnWrapper = styled.article`
   align-items: center;
 
   gap: 5rem;
-`;
-
-const Button = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: ${(props) => (props.active ? "25rem" : "15rem")};
-  height: 25rem;
-
-  border-radius: 10px;
-  background-color: ${({ theme }) => theme.colors.background};
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.sub2};
-    ${({ theme }) => theme.fonts.title02};
-  }
 `;
