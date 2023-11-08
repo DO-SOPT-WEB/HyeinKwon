@@ -3,8 +3,6 @@ import styled from "styled-components";
 export default function Header(props) {
   const { isFirstStep, handleGotoFirstPage } = props;
 
-  console.log(isFirstStep);
-
   function handleGotoFirstStep() {
     handleGotoFirstPage();
   }
