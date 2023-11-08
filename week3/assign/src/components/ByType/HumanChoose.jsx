@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import MainHeader from "../common/MainHeader";
-export default function AnimalChoose(props) {
-  const { isSelected, setIsSelected } = props;
-  const isAnimalArray = ["사람", "동물"];
+
+export default function HumanChoose(props) {
+  const { isSelected, setIsSelected, setIsHuman } = props;
+  const isHumanArray = ["사람", "동물"];
 
   function handleButtonClick(ele) {
+    {
+      ele == "사람" ? setIsHuman(true) : setIsHuman(false);
+    }
     setIsSelected(ele);
   }
 
@@ -12,7 +16,7 @@ export default function AnimalChoose(props) {
     <>
       <MainHeader>사람 이모티콘이 좋아? 아니면 다른게 좋아?</MainHeader>
       <BtnWrapper>
-        {isAnimalArray.map((ele) => {
+        {isHumanArray.map((ele) => {
           return (
             <Button
               key={ele}
@@ -44,7 +48,8 @@ const Button = styled.button`
   height: 25rem;
 
   border-radius: 10px;
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ theme, active }) =>
+    active ? theme.colors.sub2 : theme.colors.background};
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.sub2};
