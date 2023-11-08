@@ -2,7 +2,7 @@ import styled from "styled-components";
 import CategoryChoose from "./CategoryChoose";
 import TypeChoose from "./TypeChoose";
 import HumanChoose from "./HumanChoose";
-import { useReducer, useState } from "react";
+import { useCallback, useReducer, useState } from "react";
 import ResultByType from "./ResultByType";
 import MoveToBtn from "../common/MoveToBtn";
 
@@ -26,20 +26,27 @@ export default function ChooseByType({ handleStart }) {
   const [firstState, setFirstState] = useState(null);
   const [secondState, setSecondState] = useState(null);
 
-  function handleClickNextStep() {
+  const handleClickNextStep = useCallback(() => {
     if (isSelected) {
       dispatch({ type: "NEXT_STEP" });
-      step == 1 && setFirstState(isSelected);
-      step == 2 && setSecondState(isSelected);
+
+      if (step === 1) {
+        setFirstState(isSelected);
+      } else if (step === 2) {
+        setSecondState(isSelected);
+      }
+
       setIsSelected(null);
     }
-  }
+  }, [isSelected, dispatch, step, setFirstState, setSecondState]);
 
-  function handleClickPrevStart() {
+  const handleClickPrevStart = useCallback(() => {
     dispatch({ type: "PREV_STEP" });
     setIsSelected(step === 1 ? firstState : secondState);
-    step === 1 && handleStart();
-  }
+    if (step === 1) {
+      handleStart();
+    }
+  }, [dispatch, step, firstState, secondState, setIsSelected, handleStart]);
 
   return (
     <Wrapper>
