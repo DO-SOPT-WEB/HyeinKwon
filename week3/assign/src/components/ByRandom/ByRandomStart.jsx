@@ -24,6 +24,7 @@ export default function ByRandomStart(props) {
 
 const ButtonLager = styled(St.TwoButtonStyle)`
   background-color: ${({ theme }) => theme.colors.background};
+  width: 50rem;
 `;
 
 const StartBtn = styled.button`
