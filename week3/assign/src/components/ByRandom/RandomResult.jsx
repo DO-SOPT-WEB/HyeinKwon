@@ -9,10 +9,9 @@ export default function RandomResult() {
   }
 
   let randomPic = makeRandomPic(DATA);
-  console.log(randomPic.pic);
   return (
     <Wrapper>
-      <ImgWrapper src={randomPic.pic} alt="랜덤이미지" />
+      <ImgWrapper src={randomPic.pic} alt={randomPic.name} />
       <ImgName>{randomPic.name}</ImgName>
     </Wrapper>
   );
