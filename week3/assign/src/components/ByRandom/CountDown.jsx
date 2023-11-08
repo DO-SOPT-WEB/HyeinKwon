@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import RandomPage from "./RandomPage";
+import { countDownAnimation } from "../../style/countDownAnimation";
 
 export default function CountDown({ handleStart }) {
   const [countDown, setCountDown] = useState(3);
@@ -29,6 +30,12 @@ export default function CountDown({ handleStart }) {
   );
 }
 
-const CountDownNumber = styled.h3`
+const CountDownNumber = styled.div`
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   ${({ theme }) => theme.fonts.body03};
+  animation: ${countDownAnimation} 1s ease alternate infinite;
 `;
