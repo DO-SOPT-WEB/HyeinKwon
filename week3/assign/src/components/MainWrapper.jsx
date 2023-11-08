@@ -5,6 +5,8 @@ import MainHeader from "./common/MainHeader";
 import ByTypeBtn from "./ByType/ByTypeBtn";
 import ByRandomBtn from "./ByRandom/ByRandomBtn";
 
+import { St } from "../style/commonStyle";
+
 export default function MainWrapper({ setIsFirstStep, isFirstStep }) {
   const [isByType, setIsByType] = useState(false);
   const [isByRandom, setIsByRandom] = useState(false);
@@ -24,7 +26,7 @@ export default function MainWrapper({ setIsFirstStep, isFirstStep }) {
   return (
     <Wrapper>
       {!isStart ? <MainHeader>원하는 추천 방식을 골라줘!</MainHeader> : null}
-      <BtnWrapper>
+      <St.BtnWrapper>
         <ByTypeBtn
           isByType={isByType}
           setIsByType={setIsByType}
@@ -41,28 +43,13 @@ export default function MainWrapper({ setIsFirstStep, isFirstStep }) {
           handleStart={handleStart}
           setIsFirstStep={setIsFirstStep}
         />
-      </BtnWrapper>
+      </St.BtnWrapper>
     </Wrapper>
   );
 }
 
-const Wrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
+const Wrapper = styled(St.WrapperForThree)`
   width: 80vw;
   height: 50vh;
-
-  gap: 5rem;
   background-color: ${({ theme }) => theme.colors.main};
-`;
-
-const BtnWrapper = styled.article`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  gap: 5rem;
 `;

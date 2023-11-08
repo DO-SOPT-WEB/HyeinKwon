@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { DATA } from "../../assets/DATA";
 import MainHeader from "../common/MainHeader";
 
+import { St } from "../../style/commonStyle";
+
 export default function ResultByType(props) {
   const { category, type, isHuman } = props;
 
@@ -30,19 +32,12 @@ export default function ResultByType(props) {
   );
 }
 
-const Wrapper = styled.article`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+const Wrapper = styled(St.FlexColumnCenter)`
   gap: 2rem;
 `;
 
 const ImgWrapper = styled.img`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  ${St.centerFelx}
   width: 25rem;
   height: 25rem;
 `;

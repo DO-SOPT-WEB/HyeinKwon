@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import StartByType from "./StartByType";
+import { St } from "../../style/commonStyle";
 
 export default function ByTypeBtn(props) {
   const {
@@ -29,15 +30,7 @@ export default function ByTypeBtn(props) {
   );
 }
 
-const Button = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 25rem;
-  height: 25rem;
-
-  border-radius: 10px;
+const Button = styled(St.TwoButtonStyle)`
   background-color: ${({ theme }) => theme.colors.background};
 
   &:hover {

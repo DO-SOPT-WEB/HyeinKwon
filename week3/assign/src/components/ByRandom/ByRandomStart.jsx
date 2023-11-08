@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CountDown from "./CountDown";
+import { St } from "../../style/commonStyle";
 
 export default function ByRandomStart(props) {
   const { isStart, handleStart, setIsFirstStep } = props;
@@ -21,37 +22,21 @@ export default function ByRandomStart(props) {
   );
 }
 
-const ButtonLager = styled.article`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 25rem;
-  height: 25rem;
-
-  border-radius: 10px;
+const ButtonLager = styled(St.TwoButtonStyle)`
   background-color: ${({ theme }) => theme.colors.background};
-  width: 50rem;
 `;
 
 const StartBtn = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${St.centerFelx}
 
   width: 10rem;
   height: 5rem;
+  border-radius: 5px;
 
   background-color: ${({ theme }) => theme.colors.sub2};
   ${({ theme }) => theme.fonts.title03};
-  border-radius: 5px;
 `;
 
-const Wrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
+const Wrapper = styled(St.FlexColumnCenter)`
   gap: 2rem;
 `;

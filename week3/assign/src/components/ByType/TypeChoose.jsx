@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import MainHeader from "../common/MainHeader";
 
+import { St } from "../../style/commonStyle";
+
 export default function TypeChoose(props) {
   const { isSelected, setIsSelected, setType, step } = props;
   const types = ["커플", "일상", "가족/친구"];
@@ -11,10 +13,10 @@ export default function TypeChoose(props) {
   }
 
   return (
-    <Wrapper>
+    <St.WrapperForThree>
       <MainHeader>어떤 상황에서 쓸 건지 골라봐!</MainHeader>
       <Step>{step} / 3</Step>
-      <BtnWrapper>
+      <St.BtnWrapper>
         {types.map((type) => {
           return (
             <Button
@@ -25,21 +27,10 @@ export default function TypeChoose(props) {
             </Button>
           );
         })}
-      </BtnWrapper>
-    </Wrapper>
+      </St.BtnWrapper>
+    </St.WrapperForThree>
   );
 }
-
-const Wrapper = styled.article`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  position: relative;
-
-  gap: 5rem;
-`;
 
 const Step = styled.p`
   position: absolute;
@@ -48,14 +39,6 @@ const Step = styled.p`
 
   ${({ theme }) => theme.fonts.body05};
   ${({ theme }) => theme.colors.grey};
-`;
-
-const BtnWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  gap: 3rem;
 `;
 
 const Button = styled.button`

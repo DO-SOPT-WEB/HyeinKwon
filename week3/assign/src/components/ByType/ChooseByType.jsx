@@ -1,10 +1,13 @@
+import { useCallback, useReducer, useState } from "react";
 import styled from "styled-components";
+
 import CategoryChoose from "./CategoryChoose";
 import TypeChoose from "./TypeChoose";
 import HumanChoose from "./HumanChoose";
-import { useCallback, useReducer, useState } from "react";
 import ResultByType from "./ResultByType";
 import MoveToBtn from "../common/MoveToBtn";
+
+import { St } from "../../style/commonStyle";
 
 function stepReducer(state, action) {
   switch (action.type) {
@@ -49,7 +52,7 @@ export default function ChooseByType({ handleStart }) {
   }, [dispatch, step, firstState, secondState, setIsSelected, handleStart]);
 
   return (
-    <Wrapper>
+    <St.WrapperForThree>
       {step == 1 && (
         <CategoryChoose
           step={step}
@@ -81,7 +84,7 @@ export default function ChooseByType({ handleStart }) {
         <ResultByType category={category} type={type} isHuman={isHuman} />
       )}
 
-      <BtnWrapper>
+      <St.BtnWrapper>
         <MoveToBtn
           step={step}
           handleClickPrevStart={handleClickPrevStart}
@@ -89,24 +92,7 @@ export default function ChooseByType({ handleStart }) {
           isSelected={isSelected}
           handleStart={handleStart}
         />
-      </BtnWrapper>
-    </Wrapper>
+      </St.BtnWrapper>
+    </St.WrapperForThree>
   );
 }
-
-const Wrapper = styled.article`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  gap: 5rem;
-`;
-
-const BtnWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  gap: 3rem;
-`;

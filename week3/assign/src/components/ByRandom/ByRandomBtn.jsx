@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import ByRandomStart from "./ByRandomStart";
+
+import { St } from "../../style/commonStyle";
 export default function ByRandomBtn(props) {
   const {
     isByType,
@@ -34,17 +36,8 @@ export default function ByRandomBtn(props) {
   );
 }
 
-const Button = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 25rem;
-  height: 25rem;
-
-  border-radius: 10px;
+const Button = styled(St.TwoButtonStyle)`
   background-color: ${({ theme }) => theme.colors.background};
-
   &:hover {
     background-color: ${({ theme }) => theme.colors.sub2};
     ${({ theme }) => theme.fonts.title02};

@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import MainHeader from "../common/MainHeader";
 
+import { St } from "../../style/commonStyle";
+
 export default function CategoryChoose(props) {
   const { isSelected, setIsSelected, setCategory, step } = props;
   const categories = ["실용", "재미", "독특"];
@@ -12,10 +14,10 @@ export default function CategoryChoose(props) {
   }
 
   return (
-    <Wrapper>
+    <St.WrapperForThree>
       <MainHeader>카테고리를 골라봐!</MainHeader>
       <Step>{step} / 3</Step>
-      <BtnWrapper>
+      <St.BtnWrapper>
         {categories.map((category) => {
           return (
             <Button
@@ -26,19 +28,10 @@ export default function CategoryChoose(props) {
             </Button>
           );
         })}
-      </BtnWrapper>
-    </Wrapper>
+      </St.BtnWrapper>
+    </St.WrapperForThree>
   );
 }
-
-const Wrapper = styled.article`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  gap: 5rem;
-`;
 
 const Step = styled.p`
   position: absolute;
@@ -49,47 +42,12 @@ const Step = styled.p`
   ${({ theme }) => theme.colors.grey};
 `;
 
-const BtnWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  gap: 3rem;
-`;
-
-const Button = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 20rem;
-  height: 20rem;
-
-  border-radius: 10px;
+const Button = styled(St.ThreeButtonStyle)`
   background-color: ${({ theme, active }) =>
     active ? theme.colors.sub2 : theme.colors.background};
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.sub2};
     ${({ theme }) => theme.fonts.title02};
-  }
-`;
-
-const MoveToBtn = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 0.5rem;
-  border-radius: 3px;
-  ${({ theme }) => theme.fonts.body02};
-  box-shadow: 3px 3px 1px ${({ theme }) => theme.colors.sub2};
-  background-color: ${({ theme }) => theme.colors.sub1};
-
-  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
-
-  &:hover {
-    box-shadow: 3px 3px 1px ${({ theme }) => theme.colors.sub1};
-    background-color: ${({ theme }) => theme.colors.sub2};
   }
 `;

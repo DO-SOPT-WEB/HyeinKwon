@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import MainHeader from "../common/MainHeader";
+import { St } from "../../style/commonStyle";
 
 export default function HumanChoose(props) {
   const { isSelected, setIsSelected, setIsHuman, step } = props;
@@ -13,7 +14,7 @@ export default function HumanChoose(props) {
   }
 
   return (
-    <Wrapper>
+    <St.WrapperForThree>
       <MainHeader>사람 이모티콘이 좋아? 아니면 다른게 좋아?</MainHeader>
       <Step>{step} / 3</Step>
       <BtnWrapper>
@@ -28,20 +29,9 @@ export default function HumanChoose(props) {
           );
         })}
       </BtnWrapper>
-    </Wrapper>
+    </St.WrapperForThree>
   );
 }
-
-const Wrapper = styled.article`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  position: relative;
-
-  gap: 5rem;
-`;
 
 const Step = styled.p`
   position: absolute;
@@ -60,15 +50,7 @@ const BtnWrapper = styled.article`
   gap: 5rem;
 `;
 
-const Button = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 25rem;
-  height: 25rem;
-
-  border-radius: 10px;
+const Button = styled(St.TwoButtonStyle)`
   background-color: ${({ theme, active }) =>
     active ? theme.colors.sub2 : theme.colors.background};
 

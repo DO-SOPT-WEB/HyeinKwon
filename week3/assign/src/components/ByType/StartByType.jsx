@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import ChooseByType from "./ChooseByType";
 
+import { St } from "../../style/commonStyle";
+
 export default function StartByType(props) {
   const { isStart, handleStart } = props;
   function handleClickBtn() {
@@ -21,10 +23,7 @@ export default function StartByType(props) {
 }
 
 const ButtonLager = styled.article`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  ${St.centerFelx}
   width: 25rem;
   height: 25rem;
 
@@ -34,9 +33,7 @@ const ButtonLager = styled.article`
 `;
 
 const StartBtn = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${St.centerFelx}
 
   width: 10rem;
   height: 5rem;
@@ -46,11 +43,6 @@ const StartBtn = styled.button`
   border-radius: 5px;
 `;
 
-const Wrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
+const Wrapper = styled(St.FlexColumnCenter)`
   gap: 2rem;
 `;

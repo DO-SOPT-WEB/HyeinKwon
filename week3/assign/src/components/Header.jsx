@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { St } from "../style/commonStyle";
+
 export default function Header(props) {
   const { isFirstStep, handleGotoFirstPage } = props;
 
@@ -17,11 +19,7 @@ export default function Header(props) {
   );
 }
 
-const HeaderWrapper = styled.header`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+const HeaderWrapper = styled(St.FlexColumnCenter)`
   width: 100%;
   height: 10vh;
   position: relative;
@@ -33,9 +31,7 @@ const HeaderTitle = styled.h1`
 `;
 
 const GotoFirst = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${St.centerFelx}
 
   width: 5rem;
   height: 3rem;
