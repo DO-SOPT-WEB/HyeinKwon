@@ -12,15 +12,19 @@ export default function ChooseByType({ handleStart }) {
   const [category, setCategory] = useState("");
   const [type, setType] = useState("");
   const [isHuman, setIsHuman] = useState(true);
+  const [firstState, setFirstState] = useState(null);
+  const [secondState, setSecondState] = useState(null);
 
   function handleClickNextStep() {
     switch (step) {
       case 1:
         setStep(2);
+        setFirstState(isSelected);
         setIsSelected(null);
         break;
       case 2:
         setStep(3);
+        setSecondState(isSelected);
         setIsSelected(null);
         break;
       case 3:
@@ -39,9 +43,11 @@ export default function ChooseByType({ handleStart }) {
         break;
       case 2:
         setStep(1);
+        setIsSelected(firstState);
         break;
       case 3:
         setStep(2);
+        setIsSelected(secondState);
         break;
       default:
         break;
