@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import CountDown from "./CountDown";
-// eslint-disable-next-line react/prop-types
-export default function ByRandomStart({ isStart, handleStart }) {
+
+export default function ByRandomStart(props) {
+  const { isStart, handleStart, setIsFirstStep } = props;
   function handleClickBtn() {
     handleStart();
+    setIsFirstStep(false);
   }
   return (
     <>

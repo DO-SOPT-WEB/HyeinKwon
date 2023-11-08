@@ -1,12 +1,24 @@
 import styled from "styled-components";
 import Header from "./components/Header";
 import MainWrapper from "./components/MainWrapper";
+import { useState } from "react";
 
 function App() {
+  const [isFirstStep, setIsFirstStep] = useState(true);
+
+  function handleGotoFirstPage() {
+    setIsFirstStep(true);
+  }
+
   return (
     <Wrapper>
-      <Header />
-      <MainWrapper />
+      <Header
+        isFirstStep={isFirstStep}
+        setIsFirstStep={setIsFirstStep}
+        handleGotoFirstPage={handleGotoFirstPage}
+      />
+
+      <MainWrapper isFirstStep={isFirstStep} setIsFirstStep={setIsFirstStep} />
     </Wrapper>
   );
 }

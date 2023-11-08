@@ -1,10 +1,18 @@
 import styled from "styled-components";
 import ByRandomStart from "./ByRandomStart";
 export default function ByRandomBtn(props) {
-  // eslint-disable-next-line react/prop-types
-  const { isByType, setIsByRandom, isByRandom, handleStart, isStart } = props;
+  const {
+    isByType,
+    setIsByRandom,
+    isByRandom,
+    handleStart,
+    isStart,
+    setIsFirstStep,
+  } = props;
+
   function handleClick() {
     setIsByRandom((prev) => !prev);
+    setIsFirstStep(false);
   }
 
   return (
@@ -15,7 +23,11 @@ export default function ByRandomBtn(props) {
         </>
       )}
       {isByRandom && (
-        <ByRandomStart isStart={isStart} handleStart={handleStart} />
+        <ByRandomStart
+          setIsFirstStep={setIsFirstStep}
+          isStart={isStart}
+          handleStart={handleStart}
+        />
       )}
       {isByType && null}
     </>

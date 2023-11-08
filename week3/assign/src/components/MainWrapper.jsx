@@ -1,17 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import styled from "styled-components";
 import MainHeader from "./common/MainHeader";
 import ByTypeBtn from "./ByType/ByTypeBtn";
 import ByRandomBtn from "./ByRandom/ByRandomBtn";
 
-export default function MainWrapper() {
+export default function MainWrapper({ setIsFirstStep, isFirstStep }) {
   const [isByType, setIsByType] = useState(false);
   const [isByRandom, setIsByRandom] = useState(false);
   const [isStart, setIsStart] = useState(false);
+
   function handleStart() {
     setIsStart((prev) => !prev);
   }
+
+  useEffect(() => {
+    if (isFirstStep) {
+      setIsByType(false);
+      setIsByRandom(false);
+    }
+  }, [isFirstStep]);
 
   return (
     <Wrapper>
@@ -23,6 +31,7 @@ export default function MainWrapper() {
           isByRandom={isByRandom}
           isStart={isStart}
           handleStart={handleStart}
+          setIsFirstStep={setIsFirstStep}
         />
         <ByRandomBtn
           isByRandom={isByRandom}
@@ -30,6 +39,7 @@ export default function MainWrapper() {
           isByType={isByType}
           isStart={isStart}
           handleStart={handleStart}
+          setIsFirstStep={setIsFirstStep}
         />
       </BtnWrapper>
     </Wrapper>
