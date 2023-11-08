@@ -3,11 +3,12 @@ import styled from "styled-components";
 import MainHeader from "../common/MainHeader";
 
 export default function TypeChoose(props) {
-  const { isSelected, setIsSelected } = props;
+  const { isSelected, setIsSelected, setType } = props;
   const types = ["커플", "일상", "가족/친구"];
 
   function handleButtonClick(type) {
     setIsSelected(type);
+    setType(type);
   }
 
   return (

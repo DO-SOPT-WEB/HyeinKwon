@@ -3,11 +3,13 @@ import styled from "styled-components";
 import MainHeader from "../common/MainHeader";
 import { useState } from "react";
 
-export default function CategoryChoose({ isSelected, setIsSelected }) {
+export default function CategoryChoose(props) {
+  const { isSelected, setIsSelected, setCategory } = props;
   const categories = ["실용", "재미", "독특"];
 
   function handleButtonClick(category) {
     setIsSelected(category);
+    setCategory(category);
   }
 
   return (
