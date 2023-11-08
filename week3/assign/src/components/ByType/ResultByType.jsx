@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { DATA } from "../../assets/DATA";
-
 import MainHeader from "../common/MainHeader";
 
 export default function ResultByType(props) {

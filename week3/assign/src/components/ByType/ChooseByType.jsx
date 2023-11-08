@@ -6,8 +6,19 @@ import { useReducer, useState } from "react";
 import ResultByType from "./ResultByType";
 import MoveToBtn from "../common/MoveToBtn";
 
+function stepReducer(state, action) {
+  switch (action.type) {
+    case "NEXT_STEP":
+      return state < 4 ? state + 1 : state;
+    case "PREV_STEP":
+      return state > 1 ? state - 1 : state;
+    default:
+      return state;
+  }
+}
+
 export default function ChooseByType({ handleStart }) {
-  const [step, setStep] = useState(1);
+  const [step, dispatch] = useReducer(stepReducer, 1);
   const [isSelected, setIsSelected] = useState(null);
   const [category, setCategory] = useState("");
   const [type, setType] = useState("");
@@ -16,42 +27,18 @@ export default function ChooseByType({ handleStart }) {
   const [secondState, setSecondState] = useState(null);
 
   function handleClickNextStep() {
-    switch (step) {
-      case 1:
-        setStep(2);
-        setFirstState(isSelected);
-        setIsSelected(null);
-        break;
-      case 2:
-        setStep(3);
-        setSecondState(isSelected);
-        setIsSelected(null);
-        break;
-      case 3:
-        setStep(4);
-        setIsSelected(null);
-        break;
-      default:
-        break;
+    if (isSelected) {
+      dispatch({ type: "NEXT_STEP" });
+      step == 1 && setFirstState(isSelected);
+      step == 2 && setSecondState(isSelected);
+      setIsSelected(null);
     }
   }
 
   function handleClickPrevStart() {
-    switch (step) {
-      case 1:
-        handleStart();
-        break;
-      case 2:
-        setStep(1);
-        setIsSelected(firstState);
-        break;
-      case 3:
-        setStep(2);
-        setIsSelected(secondState);
-        break;
-      default:
-        break;
-    }
+    dispatch({ type: "PREV_STEP" });
+    setIsSelected(step === 1 ? firstState : secondState);
+    step === 1 && handleStart();
   }
 
   return (
