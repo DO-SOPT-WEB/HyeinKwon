@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { St } from "../../style/commonStyle";
 
 export default function MoveToBtn(props) {
   const {
@@ -37,9 +38,7 @@ export default function MoveToBtn(props) {
 }
 
 const Button = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${St.centerFelx}
 
   padding: 0.5rem;
   border-radius: 3px;

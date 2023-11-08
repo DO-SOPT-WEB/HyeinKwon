@@ -22,12 +22,7 @@ export default function StartByType(props) {
   );
 }
 
-const ButtonLager = styled.article`
-  ${St.centerFelx}
-  width: 25rem;
-  height: 25rem;
-
-  border-radius: 10px;
+const ButtonLager = styled(St.TwoButtonStyle)`
   background-color: ${({ theme }) => theme.colors.background};
   width: 50rem;
 `;

@@ -41,15 +41,7 @@ const Step = styled.p`
   ${({ theme }) => theme.colors.grey};
 `;
 
-const Button = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 20rem;
-  height: 20rem;
-
-  border-radius: 10px;
+const Button = styled(St.ThreeButtonStyle)`
   background-color: ${({ theme, active }) =>
     active ? theme.colors.sub2 : theme.colors.background};
 

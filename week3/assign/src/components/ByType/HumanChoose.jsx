@@ -43,9 +43,7 @@ const Step = styled.p`
 `;
 
 const BtnWrapper = styled.article`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${St.centerFelx}
 
   gap: 5rem;
 `;
