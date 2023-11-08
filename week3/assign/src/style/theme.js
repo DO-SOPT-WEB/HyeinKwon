@@ -3,6 +3,7 @@ const colors = {
   background: "#F9F9F9",
   sub1: "#ECC5FB",
   sub2: "#FAF4B7",
+  grey: "#B7B7B7",
 };
 
 function FONT({ weight, size, lineHeight, letterSpacing }) {

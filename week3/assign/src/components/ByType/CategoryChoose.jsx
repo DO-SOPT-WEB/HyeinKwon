@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 import MainHeader from "../common/MainHeader";
-import { useState } from "react";
 
 export default function CategoryChoose(props) {
-  const { isSelected, setIsSelected, setCategory } = props;
+  const { isSelected, setIsSelected, setCategory, step } = props;
   const categories = ["실용", "재미", "독특"];
 
   function handleButtonClick(category) {
@@ -15,6 +14,7 @@ export default function CategoryChoose(props) {
   return (
     <Wrapper>
       <MainHeader>카테고리를 골라봐!</MainHeader>
+      <Step>{step} / 3</Step>
       <BtnWrapper>
         {categories.map((category) => {
           return (
@@ -36,8 +36,17 @@ const Wrapper = styled.article`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  position: relative;
   gap: 5rem;
+`;
+
+const Step = styled.p`
+  position: absolute;
+  top: 5rem;
+  right: 2rem;
+
+  ${({ theme }) => theme.fonts.body05};
+  ${({ theme }) => theme.colors.grey};
 `;
 
 const BtnWrapper = styled.div`

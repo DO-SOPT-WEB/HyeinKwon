@@ -2,7 +2,7 @@ import styled from "styled-components";
 import MainHeader from "../common/MainHeader";
 
 export default function HumanChoose(props) {
-  const { isSelected, setIsSelected, setIsHuman } = props;
+  const { isSelected, setIsSelected, setIsHuman, step } = props;
   const isHumanArray = ["사람", "동물"];
 
   function handleButtonClick(ele) {
@@ -13,8 +13,9 @@ export default function HumanChoose(props) {
   }
 
   return (
-    <>
+    <Wrapper>
       <MainHeader>사람 이모티콘이 좋아? 아니면 다른게 좋아?</MainHeader>
+      <Step>{step} / 3</Step>
       <BtnWrapper>
         {isHumanArray.map((ele) => {
           return (
@@ -27,9 +28,29 @@ export default function HumanChoose(props) {
           );
         })}
       </BtnWrapper>
-    </>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.article`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  gap: 5rem;
+`;
+
+const Step = styled.p`
+  position: absolute;
+  top: 5rem;
+  right: 2rem;
+
+  ${({ theme }) => theme.fonts.body05};
+  ${({ theme }) => theme.colors.grey};
+`;
 
 const BtnWrapper = styled.article`
   display: flex;

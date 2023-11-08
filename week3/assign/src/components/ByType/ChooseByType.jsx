@@ -52,6 +52,7 @@ export default function ChooseByType({ handleStart }) {
     <Wrapper>
       {step == 1 && (
         <CategoryChoose
+          step={step}
           category={category}
           setCategory={setCategory}
           isSelected={isSelected}
@@ -60,6 +61,7 @@ export default function ChooseByType({ handleStart }) {
       )}
       {step == 2 && (
         <TypeChoose
+          step={step}
           type={type}
           setType={setType}
           isSelected={isSelected}
@@ -68,6 +70,7 @@ export default function ChooseByType({ handleStart }) {
       )}
       {step === 3 && (
         <HumanChoose
+          step={step}
           isHuman={isHuman}
           setIsHuman={setIsHuman}
           isSelected={isSelected}

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import MainHeader from "../common/MainHeader";
 
 export default function TypeChoose(props) {
-  const { isSelected, setIsSelected, setType } = props;
+  const { isSelected, setIsSelected, setType, step } = props;
   const types = ["커플", "일상", "가족/친구"];
 
   function handleButtonClick(type) {
@@ -14,6 +14,7 @@ export default function TypeChoose(props) {
   return (
     <Wrapper>
       <MainHeader>어떤 상황에서 쓸 건지 골라봐!</MainHeader>
+      <Step>{step} / 3</Step>
       <BtnWrapper>
         {types.map((type) => {
           return (
@@ -36,7 +37,18 @@ const Wrapper = styled.article`
   justify-content: center;
   align-items: center;
 
+  position: relative;
+
   gap: 5rem;
+`;
+
+const Step = styled.p`
+  position: absolute;
+  top: 5rem;
+  right: 2rem;
+
+  ${({ theme }) => theme.fonts.body05};
+  ${({ theme }) => theme.colors.grey};
 `;
 
 const BtnWrapper = styled.div`
