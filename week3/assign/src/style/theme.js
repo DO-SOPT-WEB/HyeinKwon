@@ -17,6 +17,8 @@ function FONT({ weight, size, lineHeight, letterSpacing }) {
 }
 
 const fonts = {
+  neon: FONT({ weight: 900, size: 5.0, lineHeight: 2.6, letterSpacing: 0 }),
+
   title01: FONT({ weight: 700, size: 2.0, lineHeight: 2.6, letterSpacing: 0 }),
   title02: FONT({ weight: 500, size: 1.6, lineHeight: 2.0, letterSpacing: 0 }),
 

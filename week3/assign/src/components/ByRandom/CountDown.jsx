@@ -36,6 +36,6 @@ const CountDownNumber = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${({ theme }) => theme.fonts.body03};
+  ${({ theme }) => theme.fonts.neon};
   animation: ${countDownAnimation} 1s ease alternate infinite;
 `;
