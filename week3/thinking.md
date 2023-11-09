@@ -17,4 +17,17 @@
 
 - 렌더링을 효과적으로 관리하는 방법은 무엇이 있을까?
 
+-> React 렌더링 최적화 하는 법!
+
+1. `useMemo`
+2. `React.memo`
+3. `useCallback`
+4. `props로 객체를 넘겨줄 경우 => 변형하지 않고 넘겨주기`
+5. `key값으로 index를 사용하지 않는다`
+6. `useState의 함수형 업데이트`
+7. `Input onChange 최적화`
+
 - Props Drilling이란 무엇이고 이를 어떻게 해결할 수 있는가?
+  => Props Drilling: React 에서 데이터를 전달하기 위해 필요한 과정을 설명하는 용어, 컴포넌트 트리에서 데이터를 하위 컴포넌트로 전달하기 위해 중간 컴포넌트를 통해 프로퍼티를 내려주는 것을 의미
+  => 중간 컴포넌트는 원하는 자식 컴포넌트에게 프로퍼티를 전달하기 위해 필요하지만 해당 값을 직접 사용하지 않는 경우에도 받아 전달해야 함
+  => 해결법: `Context API, Redux or Recoil 등 상태 관리 라이브러리, Custom Hooks, Render Props 패턴 + Children props`
