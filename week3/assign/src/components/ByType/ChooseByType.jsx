@@ -1,5 +1,4 @@
 import { useCallback, useReducer, useState } from "react";
-import styled from "styled-components";
 
 import CategoryChoose from "./CategoryChoose";
 import TypeChoose from "./TypeChoose";
@@ -8,13 +7,14 @@ import ResultByType from "./ResultByType";
 import MoveToBtn from "../common/MoveToBtn";
 
 import { St } from "../../style/commonStyle";
+import { useEffect } from "react";
 
 function stepReducer(state, action) {
   switch (action.type) {
     case "NEXT_STEP":
-      return state < 4 ? state + 1 : state;
+      return state < 4 && state + 1;
     case "PREV_STEP":
-      return state > 1 ? state - 1 : state;
+      return state > 1 && state - 1;
     default:
       return state;
   }
@@ -22,6 +22,7 @@ function stepReducer(state, action) {
 
 export default function ChooseByType({ handleStart }) {
   const [step, dispatch] = useReducer(stepReducer, 1);
+  // const [step, setStep] = useState(1);
   const [isSelected, setIsSelected] = useState(null);
   const [category, setCategory] = useState("");
   const [type, setType] = useState("");
@@ -30,26 +31,26 @@ export default function ChooseByType({ handleStart }) {
   const [secondState, setSecondState] = useState(null);
 
   const handleClickNextStep = useCallback(() => {
-    if (isSelected) {
-      dispatch({ type: "NEXT_STEP" });
+    dispatch({ type: "NEXT_STEP" });
 
-      if (step === 1) {
+    switch (step) {
+      case 1:
         setFirstState(isSelected);
-      } else if (step === 2) {
+        break;
+      case 2:
         setSecondState(isSelected);
-      }
-
-      setIsSelected(null);
+        break;
+      default:
+        break;
     }
+    setIsSelected(null);
   }, [isSelected, dispatch, step, setFirstState, setSecondState]);
 
-  const handleClickPrevStart = useCallback(() => {
+  function handleClickPrevStart() {
     dispatch({ type: "PREV_STEP" });
-    setIsSelected(step === 1 ? firstState : secondState);
-    if (step === 1) {
-      handleStart();
-    }
-  }, [dispatch, step, firstState, secondState, setIsSelected, handleStart]);
+    setIsSelected(step === 2 ? firstState : secondState);
+    step === 1 && handleStart();
+  }
 
   return (
     <St.WrapperForThree>
