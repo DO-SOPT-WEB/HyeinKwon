@@ -43,8 +43,9 @@ const Button = styled.button`
   padding: 0.5rem;
   border-radius: 3px;
   ${({ theme }) => theme.fonts.body02};
-  box-shadow: 3px 3px 1px ${({ theme }) => theme.colors.sub2};
-  background-color: ${({ theme }) => theme.colors.sub1};
+
+  background-color: ${({ theme, disabled }) =>
+    disabled ? theme.colors.grey : theme.colors.sub1};
 
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
 
