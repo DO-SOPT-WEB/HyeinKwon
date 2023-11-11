@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { DATA } from "../../assets/DATA";
+import { DATA } from "../../constants/DATA";
 import MainHeader from "../common/MainHeader";
 
 import { St } from "../../style/commonStyle";

@@ -1,4 +1,4 @@
-import { DATA } from "../../assets/DATA";
+import { DATA } from "../../constants/DATA";
 import styled from "styled-components";
 
 export default function RandomResult() {
