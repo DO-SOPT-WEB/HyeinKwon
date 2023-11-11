@@ -1,5 +1,6 @@
 import { DATA } from "../../constants/DATA";
 import styled from "styled-components";
+import { St } from "../../style/commonStyle";
 
 export default function RandomResult() {
   function makeRandomPic(array) {
@@ -17,19 +18,12 @@ export default function RandomResult() {
   );
 }
 
-const Wrapper = styled.article`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+const Wrapper = styled(St.FlexColumnCenter)`
   gap: 3rem;
 `;
 
 const ImgWrapper = styled.img`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  ${St.centerFelx}
   width: 25rem;
   height: 25rem;
 `;

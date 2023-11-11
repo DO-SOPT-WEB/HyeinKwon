@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import MainHeader from "../common/MainHeader";
 import RandomResult from "./RandomResult";
-// eslint-disable-next-line react/prop-types
+import { St } from "../../style/commonStyle";
+
 export default function RandomPage({ handleStart }) {
   function handleClickReStart() {
     handleStart();
@@ -16,20 +17,12 @@ export default function RandomPage({ handleStart }) {
   );
 }
 
-const Wrapper = styled.article`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
+const Wrapper = styled(St.FlexColumnCenter)`
   gap: 3rem;
 `;
 
 const ReStartBtn = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  ${St.centerFelx}
   padding: 0.5rem;
   border-radius: 3px;
   ${({ theme }) => theme.fonts.body02};
