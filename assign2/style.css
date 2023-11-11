@@ -58,7 +58,7 @@ hr {
 }
 
 /* 헤더부분 */
-#main_header {
+header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,8 +90,8 @@ hr {
   background-color: whitesmoke;
 }
 
-#my_money h2,
-h1 {
+#my_money > h3,
+#my_money > h2 {
   font-family: NPSfontBold;
   margin: 0.3rem;
 }
@@ -157,11 +157,12 @@ h1 {
 
 #nav_section .btn_wrapper {
   display: flex;
-  gap: 1rem;
+  gap: 0.3rem;
 }
 
 .btn_wrapper label {
   background-color: var(--subcolor02);
+
   padding: 0.2rem 0.5rem;
   border: none;
   border-radius: 10%;
@@ -171,11 +172,6 @@ h1 {
   cursor: pointer;
 }
 
-#input_minus,
-#input_plus {
-  display: none;
-}
-
 /* 리스트내역 */
 #list {
   display: flex;
@@ -183,7 +179,7 @@ h1 {
   align-items: center;
 
   gap: 1rem;
-  height: 60%;
+  height: 25rem;
 
   overflow-y: scroll;
 }
@@ -195,7 +191,7 @@ h1 {
 
   padding: 0 1rem;
   width: 90%;
-  height: 50%;
+  height: 5rem;
 
   border: 3px solid var(--subcolor01);
   border-radius: 10px;
@@ -237,10 +233,11 @@ h1 {
 /* 리스트하단버튼 */
 footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-
+  gap: 0.2rem;
   width: 100%;
+  margin-top: 2rem;
 }
 
 footer button {
@@ -248,9 +245,189 @@ footer button {
   align-items: center;
   justify-content: center;
 
-  width: 80%;
   border: none;
-  border-radius: 5%;
+  border-radius: 5px;
 
   background-color: var(--subcolor01);
+  box-shadow: 2px 2px 2px var(--maincolor);
+}
+
+#modalButton {
+  margin-left: 2rem;
+  width: 60%;
+}
+
+footer button:hover {
+  background-color: var(--maincolor);
+}
+
+#manage_category > img,
+#goto_home {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* 모달 */
+.modalStyle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: absolute;
+  bottom: 0;
+
+  gap: 0.1rem;
+  width: 375px;
+  align-items: center;
+  background-color: var(--backgroundcolor);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  z-index: 999;
+
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  box-shadow: 3px 3px 13px var(--subcolor01);
+
+  /* 심화 3.b */
+  animation: slider 1.5s;
+}
+
+#modal div {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+#modal button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  padding: 0.3rem 1rem;
+
+  border: none;
+  border-radius: 3%;
+  background-color: var(--subcolor01);
+  box-shadow: 1px 1px 1px var(--subcolor02);
+}
+
+#expenditure_select {
+  display: none;
+}
+
+.modal_background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes slider {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.delete_modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  background-color: var(--subcolor01);
+
+  gap: 0.5rem;
+  width: 15rem;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.delete_modal button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--backgroundcolor);
+  border: none;
+  border-radius: 3px;
+
+  box-shadow: 1px 1px 1px var(--maincolor);
+  width: 5rem;
+  cursor: pointer;
+}
+
+#delete_modal button:hover {
+  background-color: var(--maincolor);
+  box-shadow: 1px 1px 1px var(--backgroundcolor);
+}
+
+/* 카테고리 관리 페이지 */
+.category_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+  gap: 2.3rem;
+}
+
+.category > h2 {
+  font-family: "NPSfontBold";
+}
+
+.category_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  border-radius: 3px;
+  border: 3px solid var(--maincolor);
+  background-color: white;
+  margin-top: 0.8rem;
+}
+
+.category_wrapper div {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.category_wrapper div > h3 {
+  display: flex;
+  justify-content: center;
+  border: 2px solid var(--subcolor01);
+  width: 3rem;
+}
+
+.category_wrapper input {
+  border: none;
+  border-bottom: 1px solid var(--maincolor);
+  background-color: var(--subcolor02);
+  border-radius: 2px;
+  margin: 2rem;
+}
+
+#category_footer {
+  display: flex;
+  justify-content: center;
 }
