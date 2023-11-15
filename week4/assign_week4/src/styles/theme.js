@@ -3,6 +3,7 @@ const colors = {
   subColor: "#FFEBFC",
   textColor: "#242729",
   subTextColor: "#B8BFC2",
+  white: "#FFFFFF",
 };
 
 function FONT({ weight, size, lineHeight, letterSpacing }) {
