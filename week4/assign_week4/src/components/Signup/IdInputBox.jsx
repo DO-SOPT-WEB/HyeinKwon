@@ -3,7 +3,7 @@ import axios from "axios";
 import FlagBox from "../common/FlagBox";
 import styled from "styled-components";
 import DoubleCheckBtn from "./DoubleCheckBtn";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function IdInputBox(props) {
   const { value, onChange, title, placeholdText, isExist, setIsExist } = props;
 
@@ -27,6 +27,10 @@ export default function IdInputBox(props) {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    setIsExist(0);
+  }, [value]);
 
   return (
     <InputFlagWrapperSignup>
