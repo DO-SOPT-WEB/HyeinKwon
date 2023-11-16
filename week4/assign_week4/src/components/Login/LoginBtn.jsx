@@ -1,9 +1,8 @@
-import React from "react";
 import styled from "styled-components";
 import { St } from "../../styles/common/commonStyle";
 
-export default function LoginBtn() {
-  return <LoginButton>로그인</LoginButton>;
+export default function LoginBtn({ onClick }) {
+  return <LoginButton onClick={onClick}>로그인</LoginButton>;
 }
 
 const LoginButton = styled(St.Button)`
