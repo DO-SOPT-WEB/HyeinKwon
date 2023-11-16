@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { St } from "../common/commonStyle";
 export const LayoutStyle = styled.main`
   ${St.centerFlexColumn};
