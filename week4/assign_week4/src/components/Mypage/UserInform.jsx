@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import { St } from "../../styles/common/commonStyle";
-export default function UserInform({ text }) {
-  return <UserInformBox>{text}</UserInformBox>;
+export default function UserInform(props) {
+  const { inform, text } = props;
+  return (
+    <UserInformBox>
+      {inform} {text}
+    </UserInformBox>
+  );
 }
 
 const UserInformBox = styled.p`
