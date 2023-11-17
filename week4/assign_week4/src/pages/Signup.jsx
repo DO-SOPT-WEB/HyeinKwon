@@ -5,25 +5,50 @@ import InputBox from "../components/common/InputBox";
 import { placeholder } from "../constants/placeholders";
 import SignupBtn from "../components/Signup/SignupBtn";
 import IdInputBox from "../components/Signup/IdInputBox";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
+
+const initialState = {
+  idValue: "",
+  pwValue: "",
+  pwCheckValue: "",
+  nameValue: "",
+  isExist: 0,
+  isPwValid: false,
+  disabled: true,
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "SET_ID":
+      return { ...state, idValue: action.payload };
+    case "SET_PW":
+      return { ...state, pwValue: action.payload };
+    case "SET_PW_CHECK":
+      return { ...state, pwCheckValue: action.payload };
+    case "SET_NAME":
+      return { ...state, nameValue: action.payload };
+    case "SET_EXIST":
+      return { ...state, isExist: action.payload };
+    case "SET_PW_VALID":
+      return { ...state, isPwValid: action.payload };
+    case "SET_DISABLED":
+      return { ...state, disabled: action.payload };
+    default:
+      return state;
+  }
+};
 
 export default function Signup() {
   const navigate = useNavigate();
-  const [idValue, setIdValue] = useState("");
-  const [pwValue, setPwValue] = useState("");
-  const [pwCheckValue, setPwCheckValue] = useState("");
-  const [nameValue, setNamevalue] = useState("");
-  const [disabled, setDisabled] = useState(true);
-  const [isExist, setIsExist] = useState(0);
-  const [isPwValid, setIsPwValid] = useState(false);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleSignup = async () => {
     try {
       await axios.post(`${import.meta.env.VITE_APP_BASE_URL}/api/v1/members`, {
-        username: idValue,
-        nickname: nameValue,
-        password: pwValue,
+        username: state.idValue,
+        nickname: state.nameValue,
+        password: state.pwValue,
       });
 
       navigate("/login");
@@ -32,69 +57,92 @@ export default function Signup() {
     }
   };
 
+  //비밀번호 확인
   const pwConfirm = useCallback(() => {
-    if (!pwValue || !pwValue || pwValue != pwCheckValue) {
-      setIsPwValid(false);
-    } else if (pwValue && pwValue && pwValue == pwCheckValue) {
-      setIsPwValid((prev) => !prev);
+    if (
+      !state.pwValue ||
+      !state.pwCheckValue ||
+      state.pwValue != state.pwCheckValue
+    ) {
+      dispatch({ type: "SET_PW_VALID", payload: false });
+    } else if (
+      state.pwValue &&
+      state.pwCheckValue &&
+      state.pwValue == state.pwCheckValue
+    ) {
+      dispatch({ type: "SET_PW_VALID", payload: true });
     }
-  }, [pwValue, pwValue, pwCheckValue]);
+  }, [state.pwValue, state.pwValue, state.pwCheckValue]);
 
   useEffect(() => {
     pwConfirm();
   }, [pwConfirm]);
 
+  //회원가입 버튼
   useEffect(() => {
-    const trimmedId = idValue.trim();
-    const trimmedPw = pwValue.trim();
-    const trimmedName = nameValue.trim();
-
+    const trimmedId = state.idValue.trim();
+    const trimmedPw = state.pwValue.trim();
+    const trimmedName = state.nameValue.trim();
     if (
       !trimmedId ||
       !trimmedPw ||
       !trimmedName ||
-      isExist === 0 ||
-      isExist ||
-      !isPwValid
+      state.isExist === 0 ||
+      state.isExist ||
+      !state.isPwValid
     ) {
-      setDisabled(true);
+      dispatch({ type: "SET_DISABLED", payload: true });
     } else {
-      setDisabled(false);
+      dispatch({ type: "SET_DISABLED", payload: false });
     }
-  }, [idValue, pwValue, nameValue, isExist, isPwValid]);
+  }, [
+    state.idValue,
+    state.pwValue,
+    state.nameValue,
+    state.isExist,
+    state.isPwValid,
+  ]);
 
   return (
     <LayoutStyle>
       <Header>Sign Up</Header>
       <div>
         <IdInputBox
-          isExist={isExist}
-          setIsExist={setIsExist}
-          value={idValue}
-          onChange={(e) => setIdValue(e.target.value)}
+          isExist={state.isExist}
+          setIsExist={(isExist) =>
+            dispatch({ type: "SET_EXIST", payload: isExist })
+          }
+          value={state.idValue}
+          onChange={(e) =>
+            dispatch({ type: "SET_ID", payload: e.target.value })
+          }
           title="ID"
           placeholdText={placeholder.ID_HOLDER}
         />
       </div>
       <InputBox
-        value={pwValue}
-        onChange={(e) => setPwValue(e.target.value)}
+        value={state.pwValue}
+        onChange={(e) => dispatch({ type: "SET_PW", payload: e.target.value })}
         title="비밀번호"
         placeholdText={placeholder.PW_HOLDER}
       />
       <InputBox
-        value={pwCheckValue}
-        onChange={(e) => setPwCheckValue(e.target.value)}
+        value={state.pwCheckValue}
+        onChange={(e) =>
+          dispatch({ type: "SET_PW_CHECK", payload: e.target.value })
+        }
         title="비밀번호 확인"
         placeholdText={placeholder.PW_COMFIRM_HOLDER}
       />
       <InputBox
-        value={nameValue}
-        onChange={(e) => setNamevalue(e.target.value)}
+        value={state.nameValue}
+        onChange={(e) =>
+          dispatch({ type: "SET_NAME", payload: e.target.value })
+        }
         title="닉네임"
         placeholdText={placeholder.NICKNAME_HOLDER}
       />
-      <SignupBtn disabled={disabled} onClick={handleSignup} />
+      <SignupBtn disabled={state.disabled} onClick={handleSignup} />
     </LayoutStyle>
   );
 }
